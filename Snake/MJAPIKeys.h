@@ -7,7 +7,7 @@
 //
 
 
-static NSString* TESTFLIGHTKEY = @"";
-static NSString* BLUETOOTHKEY = @"";
-static float MULTIPLAYERVERSION = 0.0f;
-static NSString* BANNERADID = @"";
+static NSString* TESTFLIGHTKEY __unused = @"";
+static NSString* BLUETOOTHKEY __unused= @"";
+static float MULTIPLAYERVERSION __unused= 0.0f;
+static NSString* BANNERADID __unused= @"";
