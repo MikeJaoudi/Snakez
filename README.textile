@@ -1,0 +1,9 @@
+h1. Snakez: The Multiplayer Snake
+
+To install run
+
+git clone https://github.com/MJaoudi/Snakez.git 
+cd Snakez/
+git submodule init
+git submodule update 
+
