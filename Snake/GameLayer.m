@@ -48,7 +48,7 @@
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super initWithColor:ccc4(60, 60, 60, 255)])) {
     
-    self.isTouchEnabled=YES;
+        [self setTouchEnabled:YES];
     
     CGSize size = [[CCDirector sharedDirector] winSize];
     
