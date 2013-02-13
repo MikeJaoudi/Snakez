@@ -22,7 +22,7 @@ typedef enum{
 }ControlType;
 
 @class AppDelegate;
-@interface GameLayer : CCLayerColor<CCTargetedTouchDelegate>
+@interface GameLayer : CCLayerColor
 {
   SnakeBody *snake;
   SnakeDirection currentDirection;

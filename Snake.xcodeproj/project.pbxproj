@@ -15,6 +15,8 @@
 		6F092C85146E1CE80059A93C /* SnakeBody@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F092C84146E1CE70059A93C /* SnakeBody@2x.png */; };
 		6F092C87146E1D4B0059A93C /* Pickup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F092C86146E1D4B0059A93C /* Pickup@2x.png */; };
 		6F092C89146E1DCD0059A93C /* Controls@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F092C88146E1DCD0059A93C /* Controls@2x.png */; };
+		6F13C2F916CC56D0008002AE /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBD040416B641150027E6D0 /* libGoogleAdMobAds.a */; };
+		6F13C2FB16CC59FB008002AE /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD4345116CB71DA009CCC6D /* libcocos2d.a */; };
 		6F1B7EF6151FA73900A34D94 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F1B7EF4151FA73900A34D94 /* Default@2x.png */; };
 		6F1B7EF9151FB28400A34D94 /* MultiplayerGameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F1B7EF8151FB28300A34D94 /* MultiplayerGameOver.m */; };
 		6F2941CD141A8A26005BAEEF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2941CC141A8A26005BAEEF /* QuartzCore.framework */; };
@@ -55,7 +57,6 @@
 		6FBC1A72168FBF0400635ECF /* SnakeBody-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FBC1A6F168FBF0400635ECF /* SnakeBody-ipad.png */; };
 		6FBC1A75168FC54100635ECF /* Controls-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FBC1A73168FC54100635ECF /* Controls-ipad.png */; };
 		6FBC1A76168FC54100635ECF /* Controls-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FBC1A74168FC54100635ECF /* Controls-ipadhd.png */; };
-		6FBD040716B641320027E6D0 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBD040416B641150027E6D0 /* libGoogleAdMobAds.a */; };
 		6FBD040916B6415E0027E6D0 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBD040816B6415E0027E6D0 /* AdSupport.framework */; };
 		6FC54EAE1523FF1F00A35E58 /* PauseButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FC54EAC1523FF1F00A35E58 /* PauseButton@2x.png */; };
 		6FC54EB0152407E600A35E58 /* PauseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FC54EAF152407E600A35E58 /* PauseButton.png */; };
@@ -563,9 +564,10 @@
 		6F092C84146E1CE70059A93C /* SnakeBody@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SnakeBody@2x.png"; sourceTree = "<group>"; };
 		6F092C86146E1D4B0059A93C /* Pickup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pickup@2x.png"; sourceTree = "<group>"; };
 		6F092C88146E1DCD0059A93C /* Controls@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Controls@2x.png"; sourceTree = "<group>"; };
+		6F13C2F716CC562F008002AE /* TestFlight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TestFlight.h; path = Snake/TestFlight.h; sourceTree = "<group>"; };
 		6F1B7EF3151FA73900A34D94 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Snake/Default.png; sourceTree = "<group>"; };
 		6F1B7EF4151FA73900A34D94 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Snake/Default@2x.png"; sourceTree = "<group>"; };
-		6F1B7EF7151FB28300A34D94 /* MultiplayerGameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MultiplayerGameOver.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		6F1B7EF7151FB28300A34D94 /* MultiplayerGameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MultiplayerGameOver.h; sourceTree = "<group>"; };
 		6F1B7EF8151FB28300A34D94 /* MultiplayerGameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MultiplayerGameOver.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6F1B7F0B151FE29800A34D94 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Snake/Icon@2x.png"; sourceTree = "<group>"; };
 		6F2941C8141A8A26005BAEEF /* Snakez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snakez.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -612,25 +614,23 @@
 		6F998DE816976BD50002F77F /* Arrow-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow-ipad.png"; sourceTree = "<group>"; };
 		6F998DE916976BD50002F77F /* Arrow-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow-ipadhd.png"; sourceTree = "<group>"; };
 		6FB25816158695520015DACD /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
-		6FB2AB6F16B6488200A472AE /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		6FB2AB7116B6488700A472AE /* TestFlight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		6FB2AB6F16B6488200A472AE /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = Snake/libTestFlight.a; sourceTree = "<group>"; };
 		6FB2AB7216B649D900A472AE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		6FBC1A6D168FBF0400635ECF /* Pickup-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pickup-ipad.png"; sourceTree = "<group>"; };
 		6FBC1A6E168FBF0400635ECF /* OtherBody-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OtherBody-ipad.png"; sourceTree = "<group>"; };
 		6FBC1A6F168FBF0400635ECF /* SnakeBody-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SnakeBody-ipad.png"; sourceTree = "<group>"; };
 		6FBC1A73168FC54100635ECF /* Controls-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Controls-ipad.png"; sourceTree = "<group>"; };
 		6FBC1A74168FC54100635ECF /* Controls-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Controls-ipadhd.png"; sourceTree = "<group>"; };
-		6FBD03FB16B641150027E6D0 /* GADAdMobExtras.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
-		6FBD03FC16B641150027E6D0 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
-		6FBD03FD16B641150027E6D0 /* GADAdSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
-		6FBD03FE16B641150027E6D0 /* GADBannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
-		6FBD03FF16B641150027E6D0 /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
-		6FBD040016B641150027E6D0 /* GADInterstitial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
-		6FBD040116B641150027E6D0 /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
-		6FBD040216B641150027E6D0 /* GADRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
-		6FBD040316B641150027E6D0 /* GADRequestError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
-		6FBD040416B641150027E6D0 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
-		6FBD040516B641150027E6D0 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		6FBD03FB16B641150027E6D0 /* GADAdMobExtras.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GADAdMobExtras.h; path = "Snake/Google Ads/GADAdMobExtras.h"; sourceTree = "<group>"; };
+		6FBD03FC16B641150027E6D0 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GADAdNetworkExtras.h; path = "Snake/Google Ads/GADAdNetworkExtras.h"; sourceTree = "<group>"; };
+		6FBD03FD16B641150027E6D0 /* GADAdSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GADAdSize.h; path = "Snake/Google Ads/GADAdSize.h"; sourceTree = "<group>"; };
+		6FBD03FE16B641150027E6D0 /* GADBannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GADBannerView.h; path = "Snake/Google Ads/GADBannerView.h"; sourceTree = "<group>"; };
+		6FBD03FF16B641150027E6D0 /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GADBannerViewDelegate.h; path = "Snake/Google Ads/GADBannerViewDelegate.h"; sourceTree = "<group>"; };
+		6FBD040016B641150027E6D0 /* GADInterstitial.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GADInterstitial.h; path = "Snake/Google Ads/GADInterstitial.h"; sourceTree = "<group>"; };
+		6FBD040116B641150027E6D0 /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GADInterstitialDelegate.h; path = "Snake/Google Ads/GADInterstitialDelegate.h"; sourceTree = "<group>"; };
+		6FBD040216B641150027E6D0 /* GADRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GADRequest.h; path = "Snake/Google Ads/GADRequest.h"; sourceTree = "<group>"; };
+		6FBD040316B641150027E6D0 /* GADRequestError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GADRequestError.h; path = "Snake/Google Ads/GADRequestError.h"; sourceTree = "<group>"; };
+		6FBD040416B641150027E6D0 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAdMobAds.a; path = "Snake/Google Ads/libGoogleAdMobAds.a"; sourceTree = "<group>"; };
 		6FBD040816B6415E0027E6D0 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		6FC54EAC1523FF1F00A35E58 /* PauseButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseButton@2x.png"; sourceTree = "<group>"; };
 		6FC54EAF152407E600A35E58 /* PauseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseButton.png; sourceTree = "<group>"; };
@@ -689,10 +689,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F13C2FB16CC59FB008002AE /* libcocos2d.a in Frameworks */,
+				6F13C2F916CC56D0008002AE /* libGoogleAdMobAds.a in Frameworks */,
 				6FB2AB7316B649D900A472AE /* libz.dylib in Frameworks */,
 				6FBD040916B6415E0027E6D0 /* AdSupport.framework in Frameworks */,
 				6FECC285142066C4006A991F /* MessageUI.framework in Frameworks */,
-				6FBD040716B641320027E6D0 /* libGoogleAdMobAds.a in Frameworks */,
 				6FE0F7E5169B7ED300496BAA /* Twitter.framework in Frameworks */,
 				6FE0F7DD169B707000496BAA /* Social.framework in Frameworks */,
 				6FFF52BB161A4E9900095AF0 /* StoreKit.framework in Frameworks */,
@@ -832,7 +833,6 @@
 				6FBD040216B641150027E6D0 /* GADRequest.h */,
 				6FBD040316B641150027E6D0 /* GADRequestError.h */,
 				6FBD040416B641150027E6D0 /* libGoogleAdMobAds.a */,
-				6FBD040516B641150027E6D0 /* README.txt */,
 			);
 			name = Ads;
 			sourceTree = "<group>";
@@ -840,7 +840,7 @@
 		6FD433B016CB6266009CCC6D /* Test Flight */ = {
 			isa = PBXGroup;
 			children = (
-				6FB2AB7116B6488700A472AE /* TestFlight.h */,
+				6F13C2F716CC562F008002AE /* TestFlight.h */,
 				6FB2AB6F16B6488200A472AE /* libTestFlight.a */,
 			);
 			name = "Test Flight";
@@ -1799,8 +1799,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Snake\"",
-					"\"$(SRCROOT)/Snake/Ads\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Snake/Google Ads\"",
+					"\"$(SRCROOT)/cocos2d-iphone/**\"",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -1811,7 +1812,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BE9417C7-F6E8-4B66-BED0-BF18C66F5625";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "/Users/MJaoudi/Dev/Libraries/**";
+				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/cocos2d-iphone/**\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1840,8 +1841,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Snake\"",
-					"\"$(SRCROOT)/Snake/Ads\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Snake/Google Ads\"",
+					"\"$(SRCROOT)/cocos2d-iphone/**\"",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -1851,7 +1853,7 @@
 				PROVISIONING_PROFILE = "DA2AF5B8-633B-49B3-BA73-557BCEC5E558";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "/Users/MJaoudi/Dev/Libraries/**";
+				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/cocos2d-iphone/**\"";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1881,7 +1883,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				CODE_SIGN_ENTITLEMENTS = Snake/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Jaoudi (F6983JR692)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Jaoudi (F6983JR692)";
 				COPY_PHASE_STRIP = YES;
@@ -1900,8 +1902,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Snake\"",
-					"\"$(SRCROOT)/Snake/Ads\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Snake/Google Ads\"",
+					"\"$(SRCROOT)/cocos2d-iphone/**\"",
 				);
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -1912,7 +1915,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9BE019E7-83CC-4F79-BAD6-F7621EBB6B70";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "/Users/MJaoudi/Dev/Libraries/**";
+				USER_HEADER_SEARCH_PATHS = "$(inherited) \"$(SRCROOT)/cocos2d-iphone/**\"";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

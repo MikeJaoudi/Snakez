@@ -35,7 +35,7 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super initWithColor:ccc4(54, 54, 57, 255)])) {
-    self.isTouchEnabled=YES;
+        [self setTouchEnabled:YES];
 		// create and initialize a Label
     AppDelegate *app=(AppDelegate *)[[UIApplication sharedApplication] delegate];
     viewController=app.navController.topViewController;
