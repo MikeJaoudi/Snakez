@@ -30,21 +30,7 @@ typedef enum {
   kResultTied,
   }Result;
 
-@interface GameKitConnector : NSObject <GKPeerPickerControllerDelegate, GKSessionDelegate> {
-  GKPeerPickerController * peerPicker;
-  GKSession * session;
-  NSObject <ORLocalNetworkProtocol> *delegate;
-  
-  bool isHostServer;
-  int _hostGuess;
-  bool matchStarted;
-  
-  MatchState matchState;
-  Result result;
-  
-  bool ignoreInput;
-  
-}
+@interface GameKitConnector : NSObject <GKPeerPickerControllerDelegate, GKSessionDelegate>
 
 @property( nonatomic) NSObject<ORLocalNetworkProtocol>* delegate;
 @property( nonatomic) GKPeerPickerController* peerPicker;
@@ -59,14 +45,14 @@ typedef enum {
 -(void)startPeerToPeer;
 -(void)startHostServer;
 
--(void) sendCommand:(NSString*)command withArgument:(NSString*)arguments;
--(void) sendReliableCommand:(NSString*)command withArgument:(NSString*)argument;
+-(void)sendCommand:(NSString*)command withArgument:(NSString*)arguments;
+-(void)sendReliableCommand:(NSString*)command withArgument:(NSString*)argument;
 
 // some  convienience functions
--(void) sendCommand:(NSString*)command withFloat:(float)argument;
--(void) sendReliableCommand:(NSString*)command withInt:(int)argument;
--(void) sendCommand:(NSString*)command withInt:(int)argument;
--(void) sendCommand:(NSString*)command;
+-(void)sendCommand:(NSString*)command withFloat:(float)argument;
+-(void)sendReliableCommand:(NSString*)command withInt:(int)argument;
+-(void)sendCommand:(NSString*)command withInt:(int)argument;
+-(void)sendCommand:(NSString*)command;
 
 -(void)disconnect;
 -(BOOL)isHost;
