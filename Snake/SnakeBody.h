@@ -16,10 +16,8 @@ typedef enum {
     kLeftDirection = 3
 } SnakeDirection;
 
-@interface SnakeBody : CCSprite {
-	SnakeBody *nextBody;
-    NSInteger snakeStep;
-}
+@interface SnakeBody : CCSprite 
+
 -(void)addDirection:(SnakeDirection)direction;
 -(SnakeBody*)addBody;
 -(BOOL)collidedWith:(CCSprite*)s;

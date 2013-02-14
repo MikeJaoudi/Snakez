@@ -13,31 +13,11 @@
 #import "GADBannerView.h"
 
 @class AppDelegate;
-@interface GameOver : CCLayerColor {
-  CCLabelTTF *score;
-  CCLabelTTF *gameOver;
-  CCLabelTTF *highscore;
-  UIViewController *viewController;
-  NSInteger reloads;
-  
-  CCMenuItem *item;
-  CCMenuItem *item2;
 
-  float screenMultiplier;
-  
-  NSInteger currentRank;
-  NSInteger totalRank;
-  
-  GADBannerView *banner;
-  
-  CCMenuItemImage *facebook;
-  CCMenuItemImage *twitter;
-  
-  CCMenu *shareMenu;
-}
+@interface GameOver : CCLayerColor
 
-+(CCScene *) scene;
--(void)setMaxRank:(NSInteger)rank;
--(void)setCurrentRank:(NSInteger)rank;
++ (CCScene *) scene;
+- (void)setMaxRank:(NSInteger)rank;
+- (void)setCurrentRank:(NSInteger)rank;
 
 @end

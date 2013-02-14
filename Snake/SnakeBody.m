@@ -9,27 +9,28 @@
 #import "SnakeBody.h"
 
 
-@implementation SnakeBody
-
-@synthesize otherBody;
+@implementation SnakeBody {
+	SnakeBody *_nextBody;
+    NSInteger _snakeStep;
+}
 
 -(id)initWithTexture:(CCTexture2D *)texture{
     self = [super initWithTexture:texture];
     
     if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad){
     
-        snakeStep = 20;
+        _snakeStep = 20;
     }
     else{
-        snakeStep = 10;
+        _snakeStep = 10;
     }
     return self;
 }
 
 -(void)setPosition:(CGPoint)position{
 
-    if(nextBody!=nil){
-        [nextBody setPosition:self.position];
+    if(_nextBody!=nil){
+        [_nextBody setPosition:self.position];
     }
     [super setPosition:position];
 
@@ -39,106 +40,109 @@
 -(void)addDirection:(SnakeDirection)direction{
     int dx, dy;
     if(direction == kLeftDirection){
-        dx=-snakeStep;
-        dy=0;
+        dx = -_snakeStep;
+        dy = 0;
     }
     
     else if(direction == kRightDirection){
 
-        dx=snakeStep;
-        dy=0;
+        dx = _snakeStep;
+        dy = 0;
     }
     
     else if(direction == kUpDirection){
 
-        dx=0;
-        dy=snakeStep;
+        dx = 0;
+        dy = _snakeStep;
     }
     
     else if(direction == kDownDirection){
-        dx=0;
-        dy=-snakeStep;
+        dx = 0;
+        dy = -_snakeStep;
     }
     
     [self setPosition:ccp(self.position.x+dx, self.position.y+dy)];
 }
 
 
--(SnakeBody*)addBody{
-	if(nextBody==nil){
-    CCTexture2D *texture;
-    if(self.otherBody){
-      texture = [[CCTextureCache sharedTextureCache] addImage:@"OtherBody.png"];
-    }
-    else {
-      texture = [[CCTextureCache sharedTextureCache] addImage:@"SnakeBody.png"];
-    }
-    nextBody=[[SnakeBody alloc] initWithTexture:texture];
-    nextBody.position=ccp(self.position.x, self.position.y);
-    nextBody.otherBody = self.otherBody;
-    return nextBody;
+- (SnakeBody *)addBody {
+	if(_nextBody==nil){
+        CCTexture2D *texture;
+        if(_otherBody){
+            texture = [[CCTextureCache sharedTextureCache] addImage:@"OtherBody.png"];
+        }
+        else {
+          texture = [[CCTextureCache sharedTextureCache] addImage:@"SnakeBody.png"];
+        }
+        _nextBody=[[SnakeBody alloc] initWithTexture:texture];
+        _nextBody.position=ccp(self.position.x, self.position.y);
+        _nextBody.otherBody = _otherBody;
+        return _nextBody;
 	}
-  return [nextBody addBody];
+  return [_nextBody addBody];
 }
 
--(BOOL)collidedWith:(CCSprite*)s{
- // if( CGRectIntersectsRect([self boundingBox], [s boundingBox])&&self!=s ) {
+- (BOOL)collidedWith:(CCSprite *)s{
   if(CGPointEqualToPoint(s.position, self.position)){
-    return TRUE;
+    return YES;
   }
-  if(nextBody==nil){
-    return FALSE;
+
+  if(!_nextBody){
+    return NO;
   }
-  return [nextBody collidedWith:s];
+
+  return [_nextBody collidedWith:s];
 }
 
--(SnakeBody*)getNext{
-  return nextBody;
+- (SnakeBody *)getNext {
+  return _nextBody;
 }
 
--(void)setNormal{
+- (void)setNormal {
   [self setTexture:[[CCTextureCache sharedTextureCache] addImage:@"SnakeBody.png"]];
-  self.otherBody = FALSE;
-  if(nextBody!=nil){
-    [nextBody setNormal];
+  _otherBody = NO;
+
+  if(!_nextBody){
+    [_nextBody setNormal];
   }
 }
 
--(void)setOther{
+- (void)setOther {
   [self setTexture:[[CCTextureCache sharedTextureCache] addImage:@"OtherBody.png"]];
-  self.otherBody = TRUE;
-  if(nextBody!=nil){
-    [nextBody setOther];
+  _otherBody = YES;
+
+  if(_nextBody!=nil){
+    [_nextBody setOther];
   }
 }
 
 -(void)releaseAll{
-  if(nextBody!=nil){
-    [nextBody releaseAll];
+  if(_nextBody!=nil){
+    [_nextBody releaseAll];
   }
 }
 
 -(SnakeBody*)getLast{
-  if (nextBody!=nil) {
-    return [nextBody getLast];
+  if (_nextBody!=nil) {
+    return [_nextBody getLast];
   }
   return self;
 }
 
 -(NSInteger)getLength{
-  if(nextBody!=nil){
-    return [nextBody getLength]+1;
+  if(_nextBody!=nil){
+    return [_nextBody getLength]+1;
   }
   return 1;
 }
 
 -(NSInteger)getXTile{
-    return self.position.x/snakeStep;
+    return self.position.x/_snakeStep;
 }
 
 
 -(NSInteger)getYTile{
-    return self.position.y/snakeStep;
+    return self.position.y/_snakeStep;
 }
 
 
