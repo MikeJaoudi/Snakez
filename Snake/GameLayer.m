@@ -117,7 +117,7 @@
     
     
     
-    ready=FALSE;
+    ready=NO;
     
     [self schedule:@selector(next:)];
    // NSLog(@"Interval %f for speed %i",(float)([app speed]/60.0f), [app speed]);
@@ -127,7 +127,7 @@
     pausedLabel.position=ccp(size.width/2,size.height/2);
     [pausedLabel runAction:[CCHide action]];
     [self addChild:pausedLabel z:0];
-    paused=FALSE;
+    paused=NO;
     hitCorner = 0;
     
     readyl = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Ready"] fontName:@"Helvetica" fontSize:40*screenMultiplier];
@@ -160,8 +160,8 @@
 }
 
 -(void)setReady{
-  moved=FALSE;
-  ready=TRUE;
+  moved=NO;
+  ready=YES;
   startTime = [[NSDate alloc] init];
 }
 
@@ -218,7 +218,7 @@
   if(!ready){
     return;
   }
-  moved=TRUE;
+  moved=YES;
   for (UITouch * touch in touches) {
     CGPoint location = [self convertTouchToNodeSpace:touch];
     [controls getDirectionForPosition:location Stack:moveStack Current:currentDirection];
@@ -227,7 +227,7 @@
 
 
 -(void)gameOver{
-  ready=FALSE;
+  ready=NO;
   [self recordTime];
   [self didMove];
   

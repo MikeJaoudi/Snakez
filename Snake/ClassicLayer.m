@@ -106,8 +106,8 @@
   }
   else{
  //   NSLog(@"Resume");
-    ready = FALSE;
-    paused = FALSE;
+    ready = NO;
+    paused = NO;
     [NSObject cancelPreviousPerformRequestsWithTarget:[CCDirector sharedDirector] selector:@selector(pause) object:nil];
     [[CCDirector sharedDirector] resume];
     
@@ -180,7 +180,7 @@
 
 -(void)pause{
   //NSLog(@"Pause");
-  paused = TRUE;
+  paused = YES;
   [go stopAllActions];
   [readyl stopAllActions];
   [snake stopAllActions];

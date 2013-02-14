@@ -39,7 +39,7 @@
 
   secondSnake=[[SnakeBody alloc] initWithTexture:[[CCTextureCache sharedTextureCache] addImage:@"OtherBody.png"]];
   secondSnake.position=ccp(playArea.contentSize.width-45*screenMultiplier, playArea.contentSize.height-45*screenMultiplier);
-  secondSnake.otherBody=TRUE;
+  secondSnake.otherBody=YES;
   [playArea addChild:secondSnake];
   for (int x=0;x<4; x++){
     [playArea addChild:[secondSnake addBody]];
