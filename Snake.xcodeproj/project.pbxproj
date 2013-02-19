@@ -24,9 +24,10 @@
 		6F294336141A8A28005BAEEF /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F294335141A8A28005BAEEF /* GameLayer.m */; };
 		6F294343141A8B80005BAEEF /* SnakeBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F294342141A8B80005BAEEF /* SnakeBody.m */; };
 		6F294345141A927F005BAEEF /* Pickup.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F294344141A927F005BAEEF /* Pickup.png */; };
-		6F29434A141ADCC5005BAEEF /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F294349141ADCC4005BAEEF /* GameOver.m */; };
+		6F29434A141ADCC5005BAEEF /* ClassicGameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F294349141ADCC4005BAEEF /* ClassicGameOver.m */; };
 		6F2DB239151D17CE0015885A /* GameKitConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2DB238151D17CE0015885A /* GameKitConnector.m */; };
 		6F2DB23C151D82E10015885A /* MultiplayerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2DB23B151D82E10015885A /* MultiplayerLayer.m */; };
+		6F3A385416D309790021D837 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3A385316D309790021D837 /* GameOver.m */; };
 		6F3E8D231696BCAB005F6F55 /* PauseButton-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F3E8D211696BCAB005F6F55 /* PauseButton-ipad.png */; };
 		6F3E8D241696BCAB005F6F55 /* PauseButton-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F3E8D221696BCAB005F6F55 /* PauseButton-ipadhd.png */; };
 		6F3E8D291696C16D005F6F55 /* YouArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F3E8D251696C16C005F6F55 /* YouArrow.png */; };
@@ -223,13 +224,15 @@
 		6F294341141A8B80005BAEEF /* SnakeBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SnakeBody.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		6F294342141A8B80005BAEEF /* SnakeBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SnakeBody.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6F294344141A927F005BAEEF /* Pickup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pickup.png; sourceTree = "<group>"; };
-		6F294348141ADCC4005BAEEF /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
-		6F294349141ADCC4005BAEEF /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GameOver.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		6F294348141ADCC4005BAEEF /* ClassicGameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassicGameOver.h; sourceTree = "<group>"; };
+		6F294349141ADCC4005BAEEF /* ClassicGameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ClassicGameOver.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6F2DB232151D14100015885A /* ORLocalNetworkProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORLocalNetworkProtocol.h; sourceTree = "<group>"; };
 		6F2DB237151D17CE0015885A /* GameKitConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitConnector.h; sourceTree = "<group>"; };
 		6F2DB238151D17CE0015885A /* GameKitConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitConnector.m; sourceTree = "<group>"; };
 		6F2DB23A151D82E10015885A /* MultiplayerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MultiplayerLayer.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		6F2DB23B151D82E10015885A /* MultiplayerLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MultiplayerLayer.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		6F3A385216D309790021D837 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
+		6F3A385316D309790021D837 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GameOver.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6F3E8D211696BCAB005F6F55 /* PauseButton-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseButton-ipad.png"; sourceTree = "<group>"; };
 		6F3E8D221696BCAB005F6F55 /* PauseButton-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PauseButton-ipadhd.png"; sourceTree = "<group>"; };
 		6F3E8D251696C16C005F6F55 /* YouArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YouArrow.png; sourceTree = "<group>"; };
@@ -423,8 +426,12 @@
 				6F2DB238151D17CE0015885A /* GameKitConnector.m */,
 				6F29432E141A8A28005BAEEF /* AppDelegate.h */,
 				6F29432F141A8A28005BAEEF /* AppDelegate.m */,
-				6F294348141ADCC4005BAEEF /* GameOver.h */,
-				6F294349141ADCC4005BAEEF /* GameOver.m */,
+				6F3A385216D309790021D837 /* GameOver.h */,
+				6F3A385316D309790021D837 /* GameOver.m */,
+				6F294348141ADCC4005BAEEF /* ClassicGameOver.h */,
+				6F294349141ADCC4005BAEEF /* ClassicGameOver.m */,
+				6F1B7EF7151FB28300A34D94 /* MultiplayerGameOver.h */,
+				6F1B7EF8151FB28300A34D94 /* MultiplayerGameOver.m */,
 				6FDDED34141E9A3500B5807C /* MainMenu.h */,
 				6FDDED35141E9A3500B5807C /* MainMenu.m */,
 				6F49C6AF168F92A300F0B9A5 /* FullScreenControlLayer.h */,
@@ -439,8 +446,6 @@
 				6F6F242A151E73AB0000D964 /* ClassicLayer.m */,
 				6F2DB23A151D82E10015885A /* MultiplayerLayer.h */,
 				6F2DB23B151D82E10015885A /* MultiplayerLayer.m */,
-				6F1B7EF7151FB28300A34D94 /* MultiplayerGameOver.h */,
-				6F1B7EF8151FB28300A34D94 /* MultiplayerGameOver.m */,
 				6F294341141A8B80005BAEEF /* SnakeBody.h */,
 				6F294342141A8B80005BAEEF /* SnakeBody.m */,
 				6F2941DD141A8A26005BAEEF /* Resources */,
@@ -929,7 +934,7 @@
 				6F294330141A8A28005BAEEF /* AppDelegate.m in Sources */,
 				6F294336141A8A28005BAEEF /* GameLayer.m in Sources */,
 				6F294343141A8B80005BAEEF /* SnakeBody.m in Sources */,
-				6F29434A141ADCC5005BAEEF /* GameOver.m in Sources */,
+				6F29434A141ADCC5005BAEEF /* ClassicGameOver.m in Sources */,
 				6FDDED36141E9A3500B5807C /* MainMenu.m in Sources */,
 				6F2DB239151D17CE0015885A /* GameKitConnector.m in Sources */,
 				6F2DB23C151D82E10015885A /* MultiplayerLayer.m in Sources */,
@@ -939,6 +944,7 @@
 				6FCCCFC9168E329800AC45EB /* ControlLayer.m in Sources */,
 				6F49C6B1168F92A300F0B9A5 /* FullScreenControlLayer.m in Sources */,
 				6F034E19169A269200833B27 /* DPadControlLayer.m in Sources */,
+				6F3A385416D309790021D837 /* GameOver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1005,7 +1011,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Snake/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = "COCOS2D_DEBUG=0";
+				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1048,7 +1054,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Snake/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = "COCOS2D_DEBUG=0";
+				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1111,7 +1117,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Snake/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = "COCOS2D_DEBUG=0";
+				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
