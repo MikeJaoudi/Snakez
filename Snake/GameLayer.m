@@ -9,7 +9,7 @@
 
 // Import the interfaces
 #import "GameLayer.h"
-#import "GameOver.h"
+#import "ClassicGameOver.h"
 #import "GameCenter.h"
 #import "CCTouchDispatcher.h"
 #import "FullScreenControlLayer.h"
@@ -257,9 +257,8 @@
 }
 
 -(void)goToGameOver{
-    // [RevMobAds showBannerAdWithFrame:CGRectMake(80, 270, 320, 50) withDelegate:self withSpecificOrientations:UIInterfaceOrientationLandscapeLeft,UIInterfaceOrientationLandscapeRight,nil];
-    CCScene *gameOverScene = [GameOver scene];
-    [[CCDirector sharedDirector] replaceScene:gameOverScene];
+  CCScene *gameOverScene = [ClassicGameOver scene];
+  [[CCDirector sharedDirector] replaceScene:gameOverScene];
 }
 
 

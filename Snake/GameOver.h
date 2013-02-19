@@ -1,9 +1,9 @@
 //
 //  GameOver.h
-//  Snake
+//  
 //
-//  Created by Mike Jaoudi on 9/9/11.
-//  Copyright 2011 Mike Jaoudi. All rights reserved.
+//  Created by Mike Jaoudi on 2/18/13.
+//
 //
 
 #import <Foundation/Foundation.h>
@@ -12,12 +12,17 @@
 #import <Twitter/Twitter.h>
 #import "GADBannerView.h"
 
-@class AppDelegate;
-
-@interface GameOver : CCLayerColor
+@interface GameOver : CCLayerColor{
+    CCMenuItem *_playAgain;
+    CCMenuItem *_mainMenu;
+    
+    float _screenMultiplier;
+    
+    GADBannerView *_banner;
+}
 
 + (CCScene *) scene;
-- (void)setMaxRank:(NSInteger)rank;
-- (void)setCurrentRank:(NSInteger)rank;
+- (void)reset:(id)sender;
+- (void)menu:(id)sender;
 
 @end
