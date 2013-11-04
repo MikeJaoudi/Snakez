@@ -48,6 +48,8 @@
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super initWithColor:ccc4(60, 60, 60, 255)])) {
         
+
+        
         [self setTouchEnabled:YES];
         
         CGSize size = [[CCDirector sharedDirector] winSize];
@@ -63,7 +65,32 @@
         playArea = [[CCLayerColor alloc] initWithColor:ccc4(29, 29, 31, 255)];
         [playArea setContentSize:CGSizeMake(480*screenMultiplier, 320*screenMultiplier)];
         playArea.position = ccp((size.width-playArea.contentSize.width)/2, (size.height-playArea.contentSize.height)/2);
-        [self addChild:playArea z:0];
+        [self addChild:playArea z:2];
+        
+        CCSprite *background = [[CCSprite alloc] initWithTexture:[[CCTextureCache sharedTextureCache] addImage:@"Background.png"]];
+        background.position = ccp(playArea.contentSize.width/2,playArea.contentSize.height/2);
+        [playArea addChild:background z:1];
+        if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad){
+            CCSprite *glow = [[CCSprite alloc] initWithTexture:[[CCTextureCache sharedTextureCache] addImage:@"Glow.png"]];
+            glow.position = ccp(size.width/2,size.height/2);
+            [self addChild:glow z:0];
+            
+            [glow runAction:[CCRepeatForever actionWithAction:[CCSequence actions:[CCFadeTo actionWithDuration:2.0f opacity:150.0f],[CCFadeTo actionWithDuration:2.0f opacity:250.0f],nil]]];
+        }
+        else{
+            CCSprite *leftSideGlow = [[CCSprite alloc] initWithTexture:[[CCTextureCache sharedTextureCache] addImage:@"SideGlow.png"]];
+            leftSideGlow.position = ccp(leftSideGlow.contentSize.width/2 ,playArea.contentSize.height/2);
+            [self addChild:leftSideGlow z:0];
+            
+            [leftSideGlow runAction:[CCRepeatForever actionWithAction:[CCSequence actions:[CCFadeTo actionWithDuration:2.0f opacity:150.0f],[CCFadeTo actionWithDuration:2.0f opacity:250.0f],nil]]];
+            
+            CCSprite *rightSideGlow = [[CCSprite alloc] initWithTexture:[[CCTextureCache sharedTextureCache] addImage:@"SideGlow.png"]];
+            rightSideGlow.position = ccp(size.width - rightSideGlow.contentSize.width/2 ,playArea.contentSize.height/2);
+            rightSideGlow.rotation = 180.0f;
+            [self addChild:rightSideGlow z:0];
+            
+            [rightSideGlow runAction:[CCRepeatForever actionWithAction:[CCSequence actions:[CCFadeTo actionWithDuration:2.0f opacity:150.0f],[CCFadeTo actionWithDuration:2.0f opacity:250.0f],nil]]];
+        }
         
         //controls = [[CCSprite alloc] initWithTexture:[[CCTextureCache sharedTextureCache] addImage:@"Controls.png"]];
         if([[NSUserDefaults standardUserDefaults] integerForKey:@"Control"] == kControlsDPad){
@@ -74,7 +101,7 @@
         }
         [controls setContentSize:size];
         controls.position = ccp((playArea.contentSize.width-size.width)/2, (playArea.contentSize.height-size.height)/2);
-        [playArea addChild:controls z:0];
+        [playArea addChild:controls z:2];
         
         
         
@@ -126,7 +153,7 @@
         pausedLabel = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Paused"] fontName:@"Helvetica" fontSize:40*screenMultiplier];
         pausedLabel.position=ccp(size.width/2,size.height/2);
         [pausedLabel runAction:[CCHide action]];
-        [self addChild:pausedLabel z:0];
+        [self addChild:pausedLabel z:2];
         paused=NO;
         hitCorner = 0;
         
@@ -139,8 +166,8 @@
         [go runAction:[CCHide action]];
         
         
-        [self addChild:readyl z:0];
-        [self addChild:go z:0];
+        [self addChild:readyl z:4];
+        [self addChild:go z:4];
         
         [app makeBanner];
         

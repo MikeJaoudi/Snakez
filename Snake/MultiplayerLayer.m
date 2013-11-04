@@ -40,9 +40,9 @@
   secondSnake=[[SnakeBody alloc] initWithTexture:[[CCTextureCache sharedTextureCache] addImage:@"OtherBody.png"]];
   secondSnake.position=ccp(playArea.contentSize.width-45*screenMultiplier, playArea.contentSize.height-45*screenMultiplier);
   secondSnake.otherBody=YES;
-  [playArea addChild:secondSnake];
+  [playArea addChild:secondSnake z:20];
   for (int x=0;x<4; x++){
-    [playArea addChild:[secondSnake addBody]];
+    [playArea addChild:[secondSnake addBody] z:20];
     
   }
   currentDirection = kRightDirection;
@@ -61,11 +61,11 @@
   tapToStart = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Tap to Start!"]  fontName:@"Helvetica" fontSize:36*screenMultiplier];
   tapToStart.position = ccp(size.width/2, size.height/2);
   [tapToStart runAction:[CCHide action]];
-  [self addChild:tapToStart];
+    [self addChild:tapToStart z:30];
   
   thisIsYou = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"This is you!"]  fontName:@"Helvetica" fontSize:40*screenMultiplier];
   thisIsYou.position = ccp(-100, -1000);
-  [playArea addChild:thisIsYou];
+    [playArea addChild:thisIsYou z:30];
   [thisIsYou runAction:[CCHide action]];
   
   
@@ -75,7 +75,7 @@
   arrow.position = ccp(-50*screenMultiplier, 0);
   [circleNode addChild:arrow];
   circleNode.rotation = 20;
-  [playArea addChild:circleNode];
+    [playArea addChild:circleNode z:30];
   [circleNode runAction:[CCHide action]];
   waitingl = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Waiting for Opponent"]  fontName:@"Helvetica" fontSize:40*screenMultiplier];
   waitingl.position = ccp(size.width/2, size.height/2);
@@ -83,6 +83,7 @@
   
   [GameKitConnector sharedConnector].delegate = self;
   if(![[GameKitConnector sharedConnector] isConnected]){
+      NSLog(@"IS NOT CONNECTED!!");
     [[GameKitConnector sharedConnector] startHostServer];
   }
   else{
@@ -216,7 +217,6 @@ int x=0;
 
 -(void) opponentDisconnected{
   UIAlertView* dialog = [[UIAlertView alloc] init];
-  [dialog setDelegate:self];
   [dialog setTitle:@"Opponent Disconnected"];
   [dialog setMessage:@"Your opponent has disconnected"];
   [dialog addButtonWithTitle:@"Ok"];
@@ -279,7 +279,7 @@ int x=0;
   
   else if([command isEqualToString:@"grow"]){
     for (int x=0;x<5; x++){
-      [playArea addChild:[secondSnake addBody]];
+        [playArea addChild:[secondSnake addBody] z:20];
       
     }
   }

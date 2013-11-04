@@ -87,7 +87,7 @@
     return YES;
   }
 
-  if(!_nextBody){
+  if(_nextBody == nil){
     return NO;
   }
 
@@ -99,19 +99,19 @@
 }
 
 - (void)setNormal {
-  [self setTexture:[[CCTextureCache sharedTextureCache] addImage:@"SnakeBody.png"]];
-  _otherBody = NO;
-
-  if(!_nextBody){
-    [_nextBody setNormal];
-  }
+    [self setTexture:[[CCTextureCache sharedTextureCache] addImage:@"SnakeBody.png"]];
+    _otherBody = NO;
+    
+    if(_nextBody != nil){
+        [_nextBody setNormal];
+    }
 }
 
 - (void)setOther {
   [self setTexture:[[CCTextureCache sharedTextureCache] addImage:@"OtherBody.png"]];
   _otherBody = YES;
 
-  if(_nextBody!=nil){
+  if(_nextBody != nil){
     [_nextBody setOther];
   }
 }

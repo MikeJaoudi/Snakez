@@ -48,7 +48,7 @@
   scorecounter = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Points: %i",points] fontName:@"Helvetica" fontSize:20*screenMultiplier dimensions:CGSizeMake(150*screenMultiplier, 30*screenMultiplier) hAlignment:kCCTextAlignmentLeft];
   
   scorecounter.position =  ccp(82*screenMultiplier, size.height-20*screenMultiplier);
-  [self addChild:scorecounter z:0];
+  [self addChild:scorecounter z:4];
 
   
   
@@ -167,7 +167,8 @@
   [[NSNotificationCenter defaultCenter] removeObserver:self];
   [super gameOver];
   [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(goToGameOver)], nil]];
-  snakeParticle.position=ccp(snake.position.x, snake.position.y);
+    
+  snakeParticle.position=[snake getNext].position;
   [snakeParticle resetSystem];
   
 }

@@ -11,7 +11,7 @@
 #import "GameKitConnector.h"
 
 
-@interface MultiplayerLayer : GameLayer<ORLocalNetworkProtocol>{
+@interface MultiplayerLayer : GameLayer<ORLocalNetworkProtocol, UIAlertViewDelegate>{
   GameKitConnector * connection;
     
   SnakeBody *secondSnake;

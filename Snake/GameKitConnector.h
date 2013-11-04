@@ -30,7 +30,7 @@ typedef enum {
   kResultTied,
   }Result;
 
-@interface GameKitConnector : NSObject <GKPeerPickerControllerDelegate, GKSessionDelegate>
+@interface GameKitConnector : NSObject <GKPeerPickerControllerDelegate, GKSessionDelegate, UIAlertViewDelegate>
 
 @property( nonatomic) NSObject<ORLocalNetworkProtocol>* delegate;
 @property( nonatomic) GKPeerPickerController* peerPicker;

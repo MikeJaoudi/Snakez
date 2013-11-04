@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "GameKitConnector.h"
-#import "TestFlight.h"
 #import <GameKit/GameKit.h>
+#import <TestFlightSDK/TestFlight.h>
 
 typedef enum {
     kMenuMain,
@@ -20,9 +20,12 @@ typedef enum {
     kMenuControl
 } MenuSelected;
 
+#define MENUFONT @"HelveticaNeue"
+#define SUBMENUFONT @"HelveticaNeue"
 
 
-@interface MainMenu : CCLayerColor<GKLeaderboardViewControllerDelegate, GKAchievementViewControllerDelegate>
+
+@interface MainMenu : CCLayerColor<GKLeaderboardViewControllerDelegate, GKAchievementViewControllerDelegate, UIAlertViewDelegate>
 +(CCScene *) scene;
 
 -(void)controls;

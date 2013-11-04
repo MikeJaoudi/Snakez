@@ -112,7 +112,9 @@ GameCenter *sharedInstance = nil;
     achievement.showsCompletionBanner=YES;
     [_achievementsDictionary setObject:achievement forKey:achievement.identifier];
 
-    [achievement reportAchievementWithCompletionHandler:^(NSError *error){}];
+    if(_userAuthenticated){
+        [achievement reportAchievementWithCompletionHandler:^(NSError *error){}];
+    }
 }
 
 

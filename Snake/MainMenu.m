@@ -94,21 +94,24 @@
         }
         else{
             _titleHeight = 272;
-            _fontSize = 45;
+            _fontSize = 48;
             _detailSize = 40;
         }
-        _aboutText = [[CCLabelTTF alloc] initWithString:@"Snakez created and programmed by\n Mike Jaoudi ©2013.\n\nSpecial thanks to Orta Therox, Cole Krug, Kuntal Bhowmick, Jessica Korsgård, Pierson Andreas, Louis Bedford, Kane Karsteter-Mckernan, Jake Jarvis and Josh Vickerson" fontName:@"Helvetica" fontSize:_detailSize/2 dimensions:CGSizeMake(_size.width-3*_fontSize, 5*_fontSize) hAlignment:kCCTextAlignmentCenter lineBreakMode:kCCLineBreakModeWordWrap];
+        
+        [CCMenuItemFont setFontName:MENUFONT];
+        
+        _aboutText = [[CCLabelTTF alloc] initWithString:@"Snakez created and programmed by\n Mike Jaoudi ©2013.\n\nSpecial thanks to Orta Therox, Cole Krug, Kuntal Bhowmick, Jessica Korsgård, Pierson Andreas, Louis Bedford, Kane Karsteter-Mckernan, Jake Jarvis and Josh Vickerson" fontName:MENUFONT fontSize:_detailSize/2 dimensions:CGSizeMake(_size.width-3*_fontSize, 5*_fontSize) hAlignment:kCCTextAlignmentCenter lineBreakMode:kCCLineBreakModeWordWrap];
         _aboutText.position = ccp(-1000,-1000);
         
         [_aboutText runAction:[CCHide action]];
         [self addChild:_aboutText];
         
         
-        _leaderboard = [[CCMenuItemLabel alloc] initWithLabel:[CCLabelTTF labelWithString:@"Leaderboards" fontName:@"Helvetica" fontSize:_detailSize] target:self selector:@selector(leaderboard)];
-		_leaderboard.position = ccp(0, _detailSize/2);
+        _leaderboard = [[CCMenuItemLabel alloc] initWithLabel:[CCLabelTTF labelWithString:@"Leaderboards" fontName:SUBMENUFONT fontSize:_detailSize] target:self selector:@selector(leaderboard)];
+		_leaderboard.position = ccp(0, _detailSize + 10);
         
-        _achievements = [[CCMenuItemLabel alloc] initWithLabel:[CCLabelTTF labelWithString:@"Achievements" fontName:@"Helvetica" fontSize:_detailSize] target:self selector:@selector(achievements)];
-		_achievements.position = ccp(0, -_detailSize/2);
+        _achievements = [[CCMenuItemLabel alloc] initWithLabel:[CCLabelTTF labelWithString:@"Achievements" fontName:SUBMENUFONT fontSize:_detailSize] target:self selector:@selector(achievements)];
+		_achievements.position = ccp(0, 0);
         
         
 		_gameCenterMenu = [CCMenu menuWithItems:_leaderboard, _achievements, nil];
@@ -121,41 +124,35 @@
         _classic = [[CCMenuItemFont alloc] initWithString:@"Classic" target:self selector:@selector(classic)];
         _classic.position = ccp(0, 2*(_fontSize+5));
         [_classic setFontSize:_fontSize];
-        [_classic setFontName:@"Helvetica"];
         
         _multiplayer = [[CCMenuItemFont alloc] initWithString:@"Multiplayer" target:self selector:@selector(multiplayer)];
 		_multiplayer.position = ccp(0, 1*(_fontSize+5));
         [_multiplayer setFontSize:_fontSize];
-        [_multiplayer setFontName:@"Helvetica"];
         
         _gamecenter = [[CCMenuItemFont alloc] initWithString:@"Game Center" target:self selector:@selector(gamecenter)];
 		_gamecenter.position = ccp(0, 0);
         [_gamecenter setFontSize:_fontSize];
-        [_gamecenter setFontName:@"Helvetica"];
         
         _controls = [[CCMenuItemFont alloc] initWithString:@"Controls" target:self selector:@selector(controls)];
 		_controls.position = ccp(0, -1*(_fontSize+5));
         [_controls setFontSize:_fontSize];
-        [_controls setFontName:@"Helvetica"];
         
         _about = [[CCMenuItemFont alloc] initWithString:@"About" target:self selector:@selector(about)];
 		_about.position = ccp(0, -2*(_fontSize+5));
         [_about setFontSize:_fontSize];
-        [_about setFontName:@"Helvetica"];
-        
         
 		_mainMenu = [CCMenu menuWithItems:_classic, _multiplayer, _controls, _gamecenter, _about,nil];
 		_mainMenu.position = ccp(_size.width/2, _size.height/2);
 		[self addChild:_mainMenu];
         
-        _easy = [[CCMenuItemLabel alloc] initWithLabel:[CCLabelTTF labelWithString:@"Easy" fontName:@"Helvetica" fontSize:_detailSize] target:self selector:@selector(easy)];
+        _easy = [[CCMenuItemLabel alloc] initWithLabel:[CCLabelTTF labelWithString:@"Easy" fontName:SUBMENUFONT fontSize:_detailSize] target:self selector:@selector(easy)];
 		_easy.position = ccp(0, _detailSize+10);
 		
         
-        _normal = [[CCMenuItemLabel alloc] initWithLabel:[CCLabelTTF labelWithString:@"Normal" fontName:@"Helvetica" fontSize:_detailSize] target:self selector:@selector(normal)];
+        _normal = [[CCMenuItemLabel alloc] initWithLabel:[CCLabelTTF labelWithString:@"Normal" fontName:SUBMENUFONT fontSize:_detailSize] target:self selector:@selector(normal)];
 		_normal.position = ccp(0, 0);
         
-        _hard = [[CCMenuItemLabel alloc] initWithLabel:[CCLabelTTF labelWithString:@"Hard" fontName:@"Helvetica" fontSize:_detailSize] target:self selector:@selector(hard)];
+        _hard = [[CCMenuItemLabel alloc] initWithLabel:[CCLabelTTF labelWithString:@"Hard" fontName:SUBMENUFONT fontSize:_detailSize] target:self selector:@selector(hard)];
 		_hard.position = ccp(0, -_detailSize-10);
         
         
@@ -172,16 +169,16 @@
         
         
         //version = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Version %@ Build %@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"],[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]] fontName:@"Helvetica" fontSize:14];
-        _version = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Version %@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]] fontName:@"Helvetica" fontSize:_fontSize/3];
+        _version = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Version %@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]] fontName:MENUFONT fontSize:_fontSize/3];
         _version.position = ccp(_size.width-_version.contentSize.width/2-5, _version.contentSize.height/2);
         [self addChild:_version];
         
-        _name = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Mike Jaoudi ©2013"] fontName:@"Helvetica" fontSize:_fontSize/3];
+        _name = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Mike Jaoudi ©2013"] fontName:MENUFONT fontSize:_fontSize/3];
         _name.position = ccp(5+_name.contentSize.width/2, _name.contentSize.height/2);
         [self addChild:_name];
         
         
-        titleLabel = [[CCLabelTTF alloc] initWithString:@"Classic" fontName:@"Helvetica" fontSize:_fontSize];
+        titleLabel = [[CCLabelTTF alloc] initWithString:@"Classic" fontName:MENUFONT fontSize:_fontSize];
         titleLabel.position = ccp(-100, -100);
         [titleLabel runAction:[CCHide action]];
         [self addChild:titleLabel];
@@ -289,7 +286,7 @@
         return;
     }
     [titleLabel stopAllActions];
-    _gameCenterMenu.position = ccp(_size.width/2, _size.height/2+_detailSize);
+    _gameCenterMenu.position = ccp(_size.width/2, _size.height/2);
     
     [_mainMenu runAction:[CCHide action]];
     titleLabel.position = ccp(_gamecenter.position.x+_mainMenu.position.x, _gamecenter.position.y+_mainMenu.position.y);

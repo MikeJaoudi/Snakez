@@ -69,6 +69,7 @@ static GameKitConnector *sharedInstance;
 
 -(void)startHostServer {
     _isHostServer = YES;
+    NSLog(@"SHOW IT!!");
     [_peerPicker show];
 }
 
@@ -77,6 +78,7 @@ static GameKitConnector *sharedInstance;
 - (void)peerPickerControllerDidCancel:(GKPeerPickerController *)picker {
     if([_delegate respondsToSelector:@selector(connectionCancelled)]){
         [_delegate connectionCancelled];
+        sharedInstance = nil;
     }
 }
 
@@ -196,26 +198,20 @@ static GameKitConnector *sharedInstance;
         if([@"_OTHER_VERSION" isEqualToString:[array objectAtIndex:0]]){
             NSString * versionNumber = [array objectAtIndex:1];
             float otherVersion = [versionNumber floatValue];
+            
+            NSLog(@"Other version %f",otherVersion);
             float version = MULTIPLAYERVERSION;
 
             if(otherVersion < version){
-                UIAlertView *dialog = [[UIAlertView alloc] init];
-                [dialog setDelegate:self];
-                [dialog setTitle:@"Incompatible Versions"];
-                [dialog setMessage:@"Your opponent must upgrade their game in order to play you"];
-                [dialog addButtonWithTitle:@"Ok"];
+                UIAlertView *dialog = [[UIAlertView alloc] initWithTitle:@"Incompatible Versions" message:@"You must upgrade your game in order to play your opponent" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                 [dialog show];
 
                 _ignoreInput = YES;
                 [self performSelector:@selector(disconnect) withObject:nil afterDelay:1.0f];
             }
             else if( otherVersion > version){
+                UIAlertView *dialog = [[UIAlertView alloc] initWithTitle:@"Incompatible Versions" message:@"You must upgrade your game in order to play your opponent" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 
-                UIAlertView *dialog = [[UIAlertView alloc] init];
-                [dialog setDelegate:self];
-                [dialog setTitle:@"Incompatible Versions"];
-                [dialog setMessage:@"You must upgrade your game in order to play your opponent"];
-                [dialog addButtonWithTitle:@"Ok"];
                 [dialog show];
 
                 _ignoreInput = YES;
