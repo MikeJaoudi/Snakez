@@ -10,7 +10,6 @@
 #import "AppDelegate.h"
 #import "ClassicLayer.h"
 #import "MainMenu.h"
-#import "GameCenter.h"
 
 @implementation GameOver{
 

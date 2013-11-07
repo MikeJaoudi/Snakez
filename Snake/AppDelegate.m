@@ -9,8 +9,6 @@
 #import "cocos2d.h"
 #import "GameCenter.h"
 #import "AppDelegate.h"
-#import "GameConfig.h"
-#import "GameLayer.h"
 #import "MainMenu.h"
 #import "MJAPIKeys.h"
 

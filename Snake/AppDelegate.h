@@ -21,7 +21,6 @@
 @interface MyNavigationController : UINavigationController <CCDirectorDelegate>
 @end
 
-@class RootViewController;
 @interface AppDelegate : NSObject <UIApplicationDelegate, CCDirectorDelegate, GADBannerViewDelegate>
 {
 	UIWindow *window_;

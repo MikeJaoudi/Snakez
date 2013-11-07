@@ -38,7 +38,7 @@
 
 
 -(void)addDirection:(SnakeDirection)direction{
-    int dx, dy;
+    int dx = 0, dy = 0;
     if(direction == kLeftDirection){
         dx = -_snakeStep;
         dy = 0;
@@ -87,11 +87,8 @@
     return YES;
   }
 
-  if(_nextBody == nil){
-    return NO;
-  }
+    return _nextBody != nil && [_nextBody collidedWith:s];
 
-  return [_nextBody collidedWith:s];
 }
 
 - (SnakeBody *)getNext {

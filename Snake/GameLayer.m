@@ -10,8 +10,6 @@
 // Import the interfaces
 #import "GameLayer.h"
 #import "ClassicGameOver.h"
-#import "GameCenter.h"
-#import "CCTouchDispatcher.h"
 #import "FullScreenControlLayer.h"
 #import "DPadControlLayer.h"
 
@@ -70,26 +68,29 @@
         CCSprite *background = [[CCSprite alloc] initWithTexture:[[CCTextureCache sharedTextureCache] addImage:@"Background.png"]];
         background.position = ccp(playArea.contentSize.width/2,playArea.contentSize.height/2);
         [playArea addChild:background z:1];
+        
+        id glowAction = [CCRepeatForever actionWithAction:[CCSequence actions:[CCFadeTo actionWithDuration:4.0f opacity:100.0f],[CCFadeTo actionWithDuration:4.0f opacity:250.0f],nil]];
+        
         if([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad){
             CCSprite *glow = [[CCSprite alloc] initWithTexture:[[CCTextureCache sharedTextureCache] addImage:@"Glow.png"]];
             glow.position = ccp(size.width/2,size.height/2);
             [self addChild:glow z:0];
             
-            [glow runAction:[CCRepeatForever actionWithAction:[CCSequence actions:[CCFadeTo actionWithDuration:2.0f opacity:150.0f],[CCFadeTo actionWithDuration:2.0f opacity:250.0f],nil]]];
+            [glow runAction:glowAction];
         }
         else{
             CCSprite *leftSideGlow = [[CCSprite alloc] initWithTexture:[[CCTextureCache sharedTextureCache] addImage:@"SideGlow.png"]];
             leftSideGlow.position = ccp(leftSideGlow.contentSize.width/2 ,playArea.contentSize.height/2);
             [self addChild:leftSideGlow z:0];
             
-            [leftSideGlow runAction:[CCRepeatForever actionWithAction:[CCSequence actions:[CCFadeTo actionWithDuration:2.0f opacity:150.0f],[CCFadeTo actionWithDuration:2.0f opacity:250.0f],nil]]];
+            [leftSideGlow runAction:glowAction];
             
             CCSprite *rightSideGlow = [[CCSprite alloc] initWithTexture:[[CCTextureCache sharedTextureCache] addImage:@"SideGlow.png"]];
             rightSideGlow.position = ccp(size.width - rightSideGlow.contentSize.width/2 ,playArea.contentSize.height/2);
             rightSideGlow.rotation = 180.0f;
             [self addChild:rightSideGlow z:0];
             
-            [rightSideGlow runAction:[CCRepeatForever actionWithAction:[CCSequence actions:[CCFadeTo actionWithDuration:2.0f opacity:150.0f],[CCFadeTo actionWithDuration:2.0f opacity:250.0f],nil]]];
+            [rightSideGlow runAction:glowAction];
         }
         
         //controls = [[CCSprite alloc] initWithTexture:[[CCTextureCache sharedTextureCache] addImage:@"Controls.png"]];
@@ -124,15 +125,35 @@
         
         particleSystem = [CCParticleSystemQuad particleWithFile:@"PickupHit.plist"];
         [playArea addChild:particleSystem z:10];
+        
+        particleSystem.speed = particleSystem.speed * screenMultiplier;
+        particleSystem.speedVar = particleSystem.speedVar * screenMultiplier;
+        particleSystem.startSize = particleSystem.startSize * screenMultiplier;
+        particleSystem.startSizeVar = particleSystem.startSizeVar * screenMultiplier;
+        
         [particleSystem stopSystem];
         
         snakeParticle = [[CCParticleSystemQuad alloc] initWithFile:@"SnakeHit.plist"];
         [playArea addChild:snakeParticle z:10];
+        
+        snakeParticle.speed = snakeParticle.speed * screenMultiplier;
+        snakeParticle.speedVar = snakeParticle.speedVar * screenMultiplier;
+        snakeParticle.startSize = snakeParticle.startSize * screenMultiplier;
+        snakeParticle.startSizeVar = snakeParticle.startSizeVar * screenMultiplier;
+        
         [snakeParticle stopSystem];
         
         
         spawnParticle = [[CCParticleSystemQuad alloc] initWithFile:@"Spawn.plist"];
+        
+        spawnParticle.speed = spawnParticle.speed * screenMultiplier;
+        spawnParticle.speedVar = spawnParticle.speedVar * screenMultiplier;
+        spawnParticle.startSize = spawnParticle.startSize * screenMultiplier;
+        spawnParticle.startSizeVar = spawnParticle.startSizeVar * screenMultiplier;
+        
         [playArea addChild:spawnParticle z:10];
+        
+        
         [spawnParticle stopSystem];
         
         pickup = [[CCSprite alloc] initWithTexture:[[CCTextureCache sharedTextureCache] addImage:@"Pickup.png"]];
@@ -148,7 +169,7 @@
         
         [self schedule:@selector(next:)];
         // NSLog(@"Interval %f for speed %i",(float)([app speed]/60.0f), [app speed]);
-        [self schedule:@selector(nextFrame:) interval:(float)([app speed]/60.0f)];
+        [self schedule:@selector(nextFrame:) interval:([app speed]/60.0f)];
         
         pausedLabel = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Paused"] fontName:@"Helvetica" fontSize:40*screenMultiplier];
         pausedLabel.position=ccp(size.width/2,size.height/2);

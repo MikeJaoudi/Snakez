@@ -264,10 +264,7 @@ static GameKitConnector *sharedInstance;
 }
 
 -(BOOL)isConnected {
-    if([[_session peersWithConnectionState:GKPeerStateConnected] count] > 0){
-        return YES;
-    }
-    return NO;
+    return [[_session peersWithConnectionState:GKPeerStateConnected] count] > 0;
 }
 
 -(BOOL)isHost {
@@ -346,11 +343,11 @@ static GameKitConnector *sharedInstance;
 }
 
 -(void)updateRecord {
-    int total;
+    int total = [[NSUserDefaults standardUserDefaults] integerForKey:@"wins"];
     switch (_result) {
         case kResultWon:
             _wins++;
-            total = [[NSUserDefaults standardUserDefaults] integerForKey:@"wins"] + 1;
+            total++;
             [[NSUserDefaults standardUserDefaults] setInteger:total forKey:@"wins"];
             break;
         case kResultLost:
@@ -360,9 +357,9 @@ static GameKitConnector *sharedInstance;
     }
 
     CGFloat percentTowards1Game = 100 * (total / 1);
-    CGFloat percentTowrads10Games = 100 * (total / 10);
+    CGFloat percentTowards10Games = 100 * (total / 10);
     [[GameCenter sharedGameCenter] reportAchievementIdentifier:@"win1game" percentComplete:percentTowards1Game];
-    [[GameCenter sharedGameCenter] reportAchievementIdentifier:@"win10games" percentComplete:percentTowrads10Games];
+    [[GameCenter sharedGameCenter] reportAchievementIdentifier:@"win10games" percentComplete:percentTowards10Games];
 
     if(_streak == 3){
         [[GameCenter sharedGameCenter] reportAchievementIdentifier:@"3inarow" percentComplete:100.0f];

@@ -39,8 +39,6 @@
 		6F9913191521119100D7F3E0 /* OtherBody@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F9913181521119100D7F3E0 /* OtherBody@2x.png */; };
 		6F998DEA16976BD50002F77F /* Arrow-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F998DE816976BD50002F77F /* Arrow-ipad.png */; };
 		6F998DEB16976BD50002F77F /* Arrow-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F998DE916976BD50002F77F /* Arrow-ipadhd.png */; };
-		6F9EF44D16D3182700DB05F9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FB2AB7216B649D900A472AE /* libz.dylib */; };
-		6F9EF44F16D3183200DB05F9 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FBD040816B6415E0027E6D0 /* AdSupport.framework */; };
 		6F9EF45016D3183200DB05F9 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FFF52BA161A4E9900095AF0 /* StoreKit.framework */; };
 		6F9EF45216D3183F00DB05F9 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE0F7E4169B7ED300496BAA /* Twitter.framework */; };
 		6F9EF45316D3183F00DB05F9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE0F7DC169B707000496BAA /* Social.framework */; };
@@ -55,8 +53,6 @@
 		6F9EF45C16D3183F00DB05F9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2941D6141A8A26005BAEEF /* UIKit.framework */; };
 		6F9EF45D16D3183F00DB05F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2941D8141A8A26005BAEEF /* Foundation.framework */; };
 		6F9EF45E16D3183F00DB05F9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2941DA141A8A26005BAEEF /* CoreGraphics.framework */; };
-		6F9EF46116D3187900DB05F9 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9EF46016D3187900DB05F9 /* CoreMotion.framework */; };
-		6F9EF46316D3189200DB05F9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9EF46216D3189200DB05F9 /* libsqlite3.dylib */; };
 		6FBC1A70168FBF0400635ECF /* Pickup-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FBC1A6D168FBF0400635ECF /* Pickup-ipad.png */; };
 		6FBC1A71168FBF0400635ECF /* OtherBody-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FBC1A6E168FBF0400635ECF /* OtherBody-ipad.png */; };
 		6FBC1A72168FBF0400635ECF /* SnakeBody-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FBC1A6F168FBF0400635ECF /* SnakeBody-ipad.png */; };
@@ -164,7 +160,6 @@
 		6F998DE816976BD50002F77F /* Arrow-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow-ipad.png"; sourceTree = "<group>"; };
 		6F998DE916976BD50002F77F /* Arrow-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow-ipadhd.png"; sourceTree = "<group>"; };
 		6F9EF46016D3187900DB05F9 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		6F9EF46216D3189200DB05F9 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		6FB2AB7216B649D900A472AE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		6FBC1A6D168FBF0400635ECF /* Pickup-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pickup-ipad.png"; sourceTree = "<group>"; };
 		6FBC1A6E168FBF0400635ECF /* OtherBody-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OtherBody-ipad.png"; sourceTree = "<group>"; };
@@ -236,9 +231,6 @@
 				6F9EF45816D3183F00DB05F9 /* OpenGLES.framework in Frameworks */,
 				6F9EF45E16D3183F00DB05F9 /* CoreGraphics.framework in Frameworks */,
 				6F9EF45B16D3183F00DB05F9 /* AVFoundation.framework in Frameworks */,
-				6F9EF46316D3189200DB05F9 /* libsqlite3.dylib in Frameworks */,
-				6F9EF44D16D3182700DB05F9 /* libz.dylib in Frameworks */,
-				6F9EF46116D3187900DB05F9 /* CoreMotion.framework in Frameworks */,
 				6F9EF45016D3183200DB05F9 /* StoreKit.framework in Frameworks */,
 				6F9EF45216D3183F00DB05F9 /* Twitter.framework in Frameworks */,
 				6F9EF45316D3183F00DB05F9 /* Social.framework in Frameworks */,
@@ -249,7 +241,6 @@
 				6F9EF45A16D3183F00DB05F9 /* AudioToolbox.framework in Frameworks */,
 				6F9EF45C16D3183F00DB05F9 /* UIKit.framework in Frameworks */,
 				6F9EF45D16D3183F00DB05F9 /* Foundation.framework in Frameworks */,
-				6F9EF44F16D3183200DB05F9 /* AdSupport.framework in Frameworks */,
 				23FC9C4B0F78445FBF2CB0DF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				9667C17218072041002F4724 /* Images.xcassets */,
-				6F9EF46216D3189200DB05F9 /* libsqlite3.dylib */,
 				6F9EF46016D3187900DB05F9 /* CoreMotion.framework */,
 				6F2941DC141A8A26005BAEEF /* Snake */,
 				6F2941CB141A8A26005BAEEF /* Frameworks */,
