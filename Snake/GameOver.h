@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import <Social/Social.h>
 #import <Twitter/Twitter.h>
-#import <AdMob/GADBannerView.h>
+#import <Google-Mobile-Ads-SDK/GADBannerView.h>
 
 @interface GameOver : CCLayerColor{
     CCMenuItem *_playAgain;

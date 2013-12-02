@@ -203,7 +203,7 @@ static GameKitConnector *sharedInstance;
             float version = MULTIPLAYERVERSION;
 
             if(otherVersion < version){
-                UIAlertView *dialog = [[UIAlertView alloc] initWithTitle:@"Incompatible Versions" message:@"You must upgrade your game in order to play your opponent" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                UIAlertView *dialog = [[UIAlertView alloc] initWithTitle:@"Incompatible Versions" message:@"Your opponent must upgrade their game in order to play you" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                 [dialog show];
 
                 _ignoreInput = YES;
@@ -320,8 +320,8 @@ static GameKitConnector *sharedInstance;
 }
 
 -(void)sendGameOver {
-    [self sendReliableCommand:@"gameover" withInt:kResultWon];
-    [self setMatchResult:kResultLost];
+    [self sendReliableCommand:@"gameover" withInt:kResultLost];
+    [self setMatchResult:kResultWon];
 }
 
 -(void)sendTiedGame {

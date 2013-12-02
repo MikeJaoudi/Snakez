@@ -38,7 +38,7 @@
   CGSize size = [[CCDirector sharedDirector] winSize];
 
   secondSnake=[[SnakeBody alloc] initWithTexture:[[CCTextureCache sharedTextureCache] addImage:@"OtherBody.png"]];
-  secondSnake.position=ccp(playArea.contentSize.width-45*screenMultiplier, playArea.contentSize.height-45*screenMultiplier);
+  secondSnake.position=ccp(playArea.contentSize.width-55*screenMultiplier, playArea.contentSize.height-45*screenMultiplier);
   secondSnake.otherBody=YES;
   [playArea addChild:secondSnake z:20];
   for (int x=0;x<4; x++){
@@ -108,19 +108,19 @@ int x=0;
 }
 
 -(void)nextFrame:(ccTime)dt{
-  [super nextFrame:dt];
-  if ([[GameKitConnector sharedConnector] getMatchState]!=kMatchStateActive){return; }
-  
-  
-  [self sendMove];
-  if([secondSnake collidedWith:snake]){
- //   NSLog(@"Hit Other");
-    [self sendGameOver];
-  }
-  
+    if ([[GameKitConnector sharedConnector] getMatchState]!=kMatchStateActive){return; }
+    
+    [super nextFrame:dt];
+    
+    [self sendMove];
+    if([secondSnake collidedWith:snake]){
+        //   NSLog(@"Hit Other");
+        [self sendFinalMove];
+    }
+    
 }
 - (void)sendMove {
-  NSInteger value = [snake getXTile]*100 + [snake getYTile];
+  NSInteger value = ([snake getXTile]+0)*100 + ([snake getYTile] + 0);
   [[GameKitConnector sharedConnector] sendCommand:@"move" withInt:value];
   
 }
@@ -136,7 +136,7 @@ int x=0;
     
     
     
-    [self addChild:waitingl];
+    [self addChild:waitingl z:30];
     
     return;
   }
@@ -255,7 +255,7 @@ int x=0;
       }
       if([secondSnake collidedWith:snake]){
     //    NSLog(@"Hit Other");
-        [self sendGameOver];
+        [self sendFinalMove];
       }
     }
     while (ody!=0){
@@ -269,7 +269,7 @@ int x=0;
       }
       if([secondSnake collidedWith:snake]){
        // NSLog(@"Hit Other");
-        [self sendGameOver];
+        [self sendFinalMove];
       }
     }
     
@@ -290,31 +290,68 @@ int x=0;
     [[GameKitConnector sharedConnector] setMatchResult:result];
     [self gameOver];
   }
+    
+  else if([command isEqualToString:@"finalmove"]){
+      int move = [argument intValue];
+      
+      int odx = move/100 - [secondSnake getXTile];
+      int ody = move%100 - [secondSnake getYTile];
+      
+      NSLog(@"Move to x:%i and y:%i",move/100, move%100);
+      
+      while (odx!=0){
+          if(odx>0){
+              [secondSnake addDirection:kRightDirection];
+              odx = odx - 1;
+          }
+          else {
+              [secondSnake addDirection:kLeftDirection];
+              odx = odx + 1;
+          }
+      }
+      while (ody!=0){
+          if(ody>0){
+              [secondSnake addDirection:kUpDirection];
+              ody = ody - 1;
+          }
+          else {
+              [secondSnake addDirection:kDownDirection];
+              ody = ody + 1;
+          }
+      }
+      
+      [self finalPosition];
+      
+  }
   
 }
 -(void)gameOver{
-  [super gameOver];
-  [[GameKitConnector sharedConnector] setMatchState:kMatchStateGameOver];
-  
-  if([[GameKitConnector sharedConnector] getMatchResult]==kResultWon){
-    ccColor4F start ={0.0f, 0.43f, 1.0f, 1.0f};
-    snakeParticle.startColor=start;
-    ccColor4F end = {0.0f, 0.43f, 1.0f, 0.0f};
-    snakeParticle.endColor = end;
-    snakeParticle.position=ccp(secondSnake.position.x, secondSnake.position.y);
-    [snakeParticle resetSystem];
-  }
-  else {
-    ccColor4F start ={0.0f, 1.0f, 0.0f, 1.0f};
-    snakeParticle.startColor=start;
-    ccColor4F end = {0.0f, 1.0f, 0.0f, 0.0f};
-    snakeParticle.endColor = end;
-    snakeParticle.position=ccp(snake.position.x, snake.position.y);
-    [snakeParticle resetSystem];
-  }
-  [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(goToGameOver)], nil]];
-  
-  
+    [super gameOver];
+    [[GameKitConnector sharedConnector] setMatchState:kMatchStateGameOver];
+    
+    if([[GameKitConnector sharedConnector] getMatchResult]==kResultWon){
+        [secondSnake runAction:[CCHide action]];
+        
+        ccColor4F start ={0.0f, 0.43f, 1.0f, 1.0f};
+        snakeParticle.startColor=start;
+        ccColor4F end = {0.0f, 0.43f, 1.0f, 0.0f};
+        snakeParticle.endColor = end;
+        snakeParticle.position=ccp([secondSnake getNext].position.x, [secondSnake getNext].position.y);
+        [snakeParticle resetSystem];
+    }
+    else {
+        [snake runAction:[CCHide action]];
+        
+        ccColor4F start ={0.0f, 1.0f, 0.0f, 1.0f};
+        snakeParticle.startColor=start;
+        ccColor4F end = {0.0f, 1.0f, 0.0f, 0.0f};
+        snakeParticle.endColor = end;
+        snakeParticle.position=ccp([snake getNext].position.x, [snake getNext].position.y);
+        [snakeParticle resetSystem];
+    }
+    [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(goToGameOver)], nil]];
+    
+    
 }
 
 -(void)goToGameOver{
@@ -361,18 +398,25 @@ int x=0;
   
 }
 
--(void)sendGameOver{
+-(void)sendFinalMove{
 //  NSLog(@"Send Game Over");
   [[GameKitConnector sharedConnector] setMatchState:kMatchStateGameOver];
-  if( CGRectIntersectsRect([snake boundingBox], [secondSnake boundingBox])) {
-    [[GameKitConnector sharedConnector] sendTiedGame];
-  }
-  else {
-    [[GameKitConnector sharedConnector] sendGameOver];
-  }
-  [self gameOver];
+    NSLog(@"X is %i",[snake getXTile]);
+    NSInteger value = ([snake getXTile]+0)*100 + [snake getYTile] + 0;
+    NSLog(@"Hit at to x:%i and y:%i",value/100, value%100);
+    [[GameKitConnector sharedConnector] sendCommand:@"finalmove" withInt:value];
+
   
-  
+}
+
+-(void)finalPosition{
+    if( CGRectIntersectsRect([snake boundingBox], [secondSnake boundingBox])) {
+        [[GameKitConnector sharedConnector] sendTiedGame];
+    }
+    else {
+        [[GameKitConnector sharedConnector] sendGameOver];
+    }
+    [self gameOver];
 }
 
 -(void)hitPickup{
@@ -382,7 +426,7 @@ int x=0;
 
 -(void)endGame{
  // NSLog(@"End Game");
-  [self sendGameOver];
+  [self sendFinalMove];
 }
 
 -(void)numberOfGames{

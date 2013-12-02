@@ -239,8 +239,9 @@
     if([moveStack count]>0){
         currentDirection = [[moveStack objectAtIndex:0] intValue];
         [moveStack removeObjectAtIndex:0];
+        [snake addDirection:currentDirection];
+
     }
-    [snake addDirection:currentDirection];
     if([[[snake getNext] getNext] collidedWith:snake]){
         [self hitTail];
         [self endGame];

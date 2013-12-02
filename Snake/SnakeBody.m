@@ -134,12 +134,15 @@
 }
 
 -(NSInteger)getXTile{
-    return self.position.x/_snakeStep;
+    NSLog(@"X pos is %f",self.position.x);
+    NSLog(@"X tile is %i",(NSInteger)((self.position.x + _snakeStep)/_snakeStep));
+
+    return (self.position.x + _snakeStep)/_snakeStep;
 }
 
 
 -(NSInteger)getYTile{
-    return self.position.y/_snakeStep;
+    return (self.position.y + _snakeStep)/_snakeStep;
 }
 
 

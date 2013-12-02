@@ -30,7 +30,7 @@
 }
 
 - (void)sendMove;
-- (void)sendGameOver;
+-(void)sendFinalMove;
 -(void)sendGrow;
 
 @end
