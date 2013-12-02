@@ -216,6 +216,7 @@
 		9663A311182302DC0076D310 /* Glow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Glow.png; sourceTree = "<group>"; };
 		9663A312182302DC0076D310 /* Glow-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Glow-ipad.png"; sourceTree = "<group>"; };
 		9667C17218072041002F4724 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Snakez/Images.xcassets; sourceTree = "<group>"; };
+		96848864184D4700003770D3 /* MJAPIKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJAPIKeys.h; sourceTree = "<group>"; };
 		96AE707C1820E35F00E4191C /* Background-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-ipad.png"; sourceTree = "<group>"; };
 		96AE707D1820E35F00E4191C /* Background-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-ipadhd.png"; sourceTree = "<group>"; };
 		CCD7B5404F54448F9CC14400 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -334,6 +335,7 @@
 				965567DC181EDB85001B8E53 /* Background@2x.png */,
 				96AE707C1820E35F00E4191C /* Background-ipad.png */,
 				96AE707D1820E35F00E4191C /* Background-ipadhd.png */,
+				96848864184D4700003770D3 /* MJAPIKeys.h */,
 				6F2941DD141A8A26005BAEEF /* Resources */,
 				6F29432A141A8A28005BAEEF /* Supporting Files */,
 			);
