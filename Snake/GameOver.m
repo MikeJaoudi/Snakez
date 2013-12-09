@@ -12,7 +12,7 @@
 #import "MainMenu.h"
 
 @implementation GameOver{
-
+    CCSprite *_background;
 }
 + (CCScene *) scene {
 	[NSException exceptionWithName:@"Must Overwrite" reason:@"You must overwrite this class" userInfo:nil];
@@ -34,6 +34,24 @@
     else{
         _screenMultiplier = 1;
     }
+    
+    _background = [[CCSprite alloc] initWithTexture:[[CCTextureCache sharedTextureCache] addImage:@"MenuBackground.png"]];
+    
+    int widthDiff = _background.contentSize.width - size.width;
+    int heightDiff = _background.contentSize.height - size.height;
+    
+    
+    _background.position = ccp(size.width/2 , size.height/2 - heightDiff/2);
+    ccBezierConfig bezier;
+    bezier.controlPoint_1 = ccp(size.width/2 - widthDiff/2, size.height/2 + heightDiff/2);
+    bezier.controlPoint_2 = ccp(size.width/2 + widthDiff/2, size.height/2 + heightDiff/2);;
+    bezier.endPosition = ccp(size.width/2, size.height/2 - heightDiff/2);
+    
+    id bezierForward = [CCBezierTo actionWithDuration:30 bezier:bezier];
+    
+    
+    [_background runAction:[CCRepeatForever actionWithAction:bezierForward]];
+    [self addChild:_background];
     
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     

@@ -90,8 +90,12 @@
 		6FE0F7E3169B79A200496BAA /* facebook-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE0F7E0169B79A200496BAA /* facebook-ipad.png */; };
 		6FE955B314283DFF0096D00B /* SnakeBody.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FE955B214283DFF0096D00B /* SnakeBody.png */; };
 		6FF6145D141FD71D0038FA73 /* Controls.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FF6145C141FD71D0038FA73 /* Controls.png */; };
+		9612DA851850F8C500C45A58 /* MenuBackground-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9612DA841850F8C500C45A58 /* MenuBackground-ipadhd.png */; };
+		9612DA881851046100C45A58 /* MenuBackground-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9612DA861851046100C45A58 /* MenuBackground-hd.png */; };
+		9612DA891851046100C45A58 /* MenuBackground-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 9612DA871851046100C45A58 /* MenuBackground-ipad.png */; };
 		965567DD181EDB85001B8E53 /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 965567DC181EDB85001B8E53 /* Background@2x.png */; };
 		965567DF181EDCA0001B8E53 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 965567DE181EDCA0001B8E53 /* Background.png */; };
+		96586CE1185564AA00F2ABA5 /* MenuBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 96586CE0185564AA00F2ABA5 /* MenuBackground.png */; };
 		9663A30C1822EDB70076D310 /* SideGlow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9663A30B1822EDB70076D310 /* SideGlow@2x.png */; };
 		9663A30E1822EE3E0076D310 /* SideGlow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9663A30D1822EE3E0076D310 /* SideGlow.png */; };
 		9663A3101823026E0076D310 /* Glow-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 9663A30F1823026E0076D310 /* Glow-ipadhd.png */; };
@@ -208,8 +212,12 @@
 		6FECC286142066CE006A991F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6FF6145C141FD71D0038FA73 /* Controls.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Controls.png; sourceTree = "<group>"; };
 		6FFF52BA161A4E9900095AF0 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		9612DA841850F8C500C45A58 /* MenuBackground-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuBackground-ipadhd.png"; sourceTree = "<group>"; };
+		9612DA861851046100C45A58 /* MenuBackground-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuBackground-hd.png"; sourceTree = "<group>"; };
+		9612DA871851046100C45A58 /* MenuBackground-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MenuBackground-ipad.png"; sourceTree = "<group>"; };
 		965567DC181EDB85001B8E53 /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
 		965567DE181EDCA0001B8E53 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
+		96586CE0185564AA00F2ABA5 /* MenuBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuBackground.png; sourceTree = "<group>"; };
 		9663A30B1822EDB70076D310 /* SideGlow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SideGlow@2x.png"; sourceTree = "<group>"; };
 		9663A30D1822EE3E0076D310 /* SideGlow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SideGlow.png; sourceTree = "<group>"; };
 		9663A30F1823026E0076D310 /* Glow-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Glow-ipadhd.png"; sourceTree = "<group>"; };
@@ -390,10 +398,10 @@
 		6FD433B316CB6286009CCC6D /* Facebook */ = {
 			isa = PBXGroup;
 			children = (
-				6FE0F7D6169B6F9600496BAA /* facebook-ipadhd.png */,
 				6FE0F7DE169B79A200496BAA /* facebook.png */,
 				6FE0F7DF169B79A200496BAA /* facebook@2x.png */,
 				6FE0F7E0169B79A200496BAA /* facebook-ipad.png */,
+				6FE0F7D6169B6F9600496BAA /* facebook-ipadhd.png */,
 			);
 			name = Facebook;
 			path = Snake;
@@ -510,6 +518,10 @@
 		6FD433C016CB6393009CCC6D /* Arrow */ = {
 			isa = PBXGroup;
 			children = (
+				96586CE0185564AA00F2ABA5 /* MenuBackground.png */,
+				9612DA861851046100C45A58 /* MenuBackground-hd.png */,
+				9612DA871851046100C45A58 /* MenuBackground-ipad.png */,
+				9612DA841850F8C500C45A58 /* MenuBackground-ipadhd.png */,
 				6F3E8D251696C16C005F6F55 /* YouArrow.png */,
 				6F3E8D261696C16C005F6F55 /* YouArrow-ipad.png */,
 				6F3E8D271696C16D005F6F55 /* YouArrow-ipadhd.png */,
@@ -546,10 +558,10 @@
 		6FD433C416CB64A8009CCC6D /* Full Screen */ = {
 			isa = PBXGroup;
 			children = (
-				6FBC1A73168FC54100635ECF /* Controls-ipad.png */,
-				6FBC1A74168FC54100635ECF /* Controls-ipadhd.png */,
 				6FF6145C141FD71D0038FA73 /* Controls.png */,
 				6F092C88146E1DCD0059A93C /* Controls@2x.png */,
+				6FBC1A73168FC54100635ECF /* Controls-ipad.png */,
+				6FBC1A74168FC54100635ECF /* Controls-ipadhd.png */,
 			);
 			name = "Full Screen";
 			path = Snake;
@@ -632,6 +644,7 @@
 				6FCF2D2F15313CA200EC3C9A /* Arrow.png in Resources */,
 				6FCF2D3015313CA200EC3C9A /* Arrow@2x.png in Resources */,
 				6FC99A68156B3F89003575BB /* SnakeHit.plist in Resources */,
+				96586CE1185564AA00F2ABA5 /* MenuBackground.png in Resources */,
 				965567DF181EDCA0001B8E53 /* Background.png in Resources */,
 				6FC99A6E156B45EE003575BB /* PickupHit.plist in Resources */,
 				6FC99A70156B46F4003575BB /* Spawn.plist in Resources */,
@@ -656,6 +669,7 @@
 				6F998DEB16976BD50002F77F /* Arrow-ipadhd.png in Resources */,
 				6F034E1B169A2DD400833B27 /* ControlPad-ipadhd.png in Resources */,
 				6F034E1D169A2FA100833B27 /* ControlPad-ipad.png in Resources */,
+				9612DA891851046100C45A58 /* MenuBackground-ipad.png in Resources */,
 				6F034E1F169A302200833B27 /* ControlPad@2x.png in Resources */,
 				6F034E21169A309100833B27 /* ControlPad.png in Resources */,
 				6FE0F7C4169AAB4700496BAA /* FullScreenMenu-ipadhd.png in Resources */,
@@ -668,11 +682,13 @@
 				6FE0F7D1169AB3F700496BAA /* DPadMenu.png in Resources */,
 				6FE0F7D7169B6F9700496BAA /* twitter.png in Resources */,
 				6FE0F7D8169B6F9700496BAA /* twitter@2x.png in Resources */,
+				9612DA851850F8C500C45A58 /* MenuBackground-ipadhd.png in Resources */,
 				6FE0F7D9169B6F9700496BAA /* twitter-ipad.png in Resources */,
 				6FE0F7DA169B6F9700496BAA /* twitter-ipadhd.png in Resources */,
 				6FE0F7DB169B6F9700496BAA /* facebook-ipadhd.png in Resources */,
 				6FE0F7E1169B79A200496BAA /* facebook.png in Resources */,
 				6FE0F7E2169B79A200496BAA /* facebook@2x.png in Resources */,
+				9612DA881851046100C45A58 /* MenuBackground-hd.png in Resources */,
 				9663A313182302DC0076D310 /* Glow.png in Resources */,
 				6FE0F7E3169B79A200496BAA /* facebook-ipad.png in Resources */,
 			);

@@ -56,6 +56,8 @@
     
     CCMenu *_controlMenu;
     
+    CCSprite *_background;
+    
 }
 
 +(CCScene *) scene
@@ -97,6 +99,24 @@
             _fontSize = 48;
             _detailSize = 40;
         }
+        
+        _background = [[CCSprite alloc] initWithTexture:[[CCTextureCache sharedTextureCache] addImage:@"MenuBackground.png"]];
+        
+        int widthDiff = _background.contentSize.width - _size.width;
+        int heightDiff = _background.contentSize.height - _size.height;
+        
+        
+        _background.position = ccp(_size.width/2 , _size.height/2 - heightDiff/2);
+        ccBezierConfig bezier;
+        bezier.controlPoint_1 = ccp(_size.width/2 - widthDiff/2, _size.height/2 + heightDiff/2);
+        bezier.controlPoint_2 = ccp(_size.width/2 + widthDiff/2, _size.height/2 + heightDiff/2);;
+        bezier.endPosition = ccp(_size.width/2, _size.height/2 - heightDiff/2);
+        
+        id bezierForward = [CCBezierTo actionWithDuration:30 bezier:bezier];
+        
+        
+        [_background runAction:[CCRepeatForever actionWithAction:bezierForward]];
+        [self addChild:_background];
         
         [CCMenuItemFont setFontName:MENUFONT];
         

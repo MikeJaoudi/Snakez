@@ -130,32 +130,8 @@
 }
 
 - (void)postToTwitter{
-    if(NSClassFromString(@"SLComposeViewController") != nil){
-        [self postToNetwork:SLServiceTypeTwitter];
-    }
-    else if(NSClassFromString(@"TWTweetComposeViewController") != nil){
-        TWTweetComposeViewController *sheet = [[TWTweetComposeViewController alloc] init];
+    [self postToNetwork:SLServiceTypeTwitter];
 
-        [sheet addImage:[self screenshot]];
-
-        AppDelegate *app=(AppDelegate *)[[UIApplication sharedApplication] delegate];
-
-        NSString *difficulty;
-        if([app speed]==kHardSpeed){
-            difficulty = @"Hard";
-        }
-        else if([app speed]==kNormalSpeed){
-            difficulty = @"Normal";
-
-        }
-        else{
-            difficulty = @"Easy";
-        }
-
-        [sheet setInitialText:[NSString stringWithFormat:@"I got %i points in Snakez on %@! Beat that! https://itunes.apple.com/us/app/snakez/id517540318?mt=8",app.score, difficulty]];
-
-        [app.navController presentModalViewController:sheet animated:YES];
-    }
 }
 
 
