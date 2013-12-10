@@ -10,6 +10,7 @@
 #import "GameLayer.h"
 #import "AppDelegate.h"
 
+
 @class AppDelegate;
 @interface ClassicLayer : GameLayer{
   CCSprite *pauseButton;

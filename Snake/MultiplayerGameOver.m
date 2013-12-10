@@ -43,43 +43,40 @@
     CGSize size = [[CCDirector sharedDirector] winSize];
     
     [self setTouchEnabled:YES];
+    [[GameKitConnector sharedConnector] updateRecord];
+
     
-    
-    _score = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"You Tied"] fontName:@"Helvetica" fontSize:52*_screenMultiplier];
+    _score = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"You Tied"] fontName:HEADERFONT fontSize:52*_screenMultiplier];
     
     if([[GameKitConnector sharedConnector] getMatchResult]==kResultTied){
         [_score setString:@"You Tied"];
-        [GameKitConnector sharedConnector].streak = 0;
     }
     else if([[GameKitConnector sharedConnector] getMatchResult]==kResultWon){
         [_score setString:@"You WON!"];
-        [GameKitConnector sharedConnector].streak++;
         
     }
     else {
         [_score setString:@"You Lost"];
-        [GameKitConnector sharedConnector].streak = 0;
         
     }
-    [[GameKitConnector sharedConnector] updateRecord];
     _score.position =  ccp( size.width /2 , size.height-40*_screenMultiplier);
     
     [self addChild: _score];
     
     
-    _winlabel = [[CCLabelTTF alloc] initWithString:@"Wins" fontName:@"Helvetica" fontSize:30*_screenMultiplier];
+    _winlabel = [[CCLabelTTF alloc] initWithString:@"Wins" fontName:MENUFONT fontSize:30*_screenMultiplier];
     _winlabel.position = ccp(size.width/2-60*_screenMultiplier, size.height-130*_screenMultiplier);
     [self addChild:_winlabel];
     
-    _loselabel = [[CCLabelTTF alloc] initWithString:@"Losses" fontName:@"Helvetica" fontSize:30*_screenMultiplier];
+    _loselabel = [[CCLabelTTF alloc] initWithString:@"Losses" fontName:MENUFONT fontSize:30*_screenMultiplier];
     _loselabel.position = ccp(size.width/2+60*_screenMultiplier, size.height-130*_screenMultiplier);
     [self addChild:_loselabel];
     
-    _wincount = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"%i",[GameKitConnector sharedConnector].wins] fontName:@"Helvetica" fontSize:30*_screenMultiplier];
+    _wincount = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"%i",[GameKitConnector sharedConnector].wins] fontName:MENUFONT fontSize:30*_screenMultiplier];
     _wincount.position = ccp(size.width/2-60*_screenMultiplier, size.height-160*_screenMultiplier);
     [self addChild:_wincount];
     
-    _losecount = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"%i",[GameKitConnector sharedConnector].loses] fontName:@"Helvetica" fontSize:30*_screenMultiplier];
+    _losecount = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"%i",[GameKitConnector sharedConnector].loses] fontName:MENUFONT fontSize:30*_screenMultiplier];
     _losecount.position = ccp(size.width/2+60*_screenMultiplier, size.height-160*_screenMultiplier);
     [self addChild:_losecount];
     

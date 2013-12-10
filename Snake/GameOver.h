@@ -12,6 +12,9 @@
 #import <Twitter/Twitter.h>
 #import <Google-Mobile-Ads-SDK/GADBannerView.h>
 
+#define MENUFONT @"HelveticaNeue-Light"
+#define HEADERFONT @"HelveticaNeue"
+
 @interface GameOver : CCLayerColor{
     CCMenuItem *_playAgain;
     CCMenuItem *_mainMenu;

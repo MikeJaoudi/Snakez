@@ -58,12 +58,12 @@
 //  [self addChild:instructions];
   
   
-  tapToStart = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Tap to Start!"]  fontName:@"Helvetica" fontSize:36*screenMultiplier];
+  tapToStart = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Tap to Start!"]  fontName:MENUFONT fontSize:36*screenMultiplier];
   tapToStart.position = ccp(size.width/2, size.height/2);
   [tapToStart runAction:[CCHide action]];
     [self addChild:tapToStart z:30];
   
-  thisIsYou = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"This is you!"]  fontName:@"Helvetica" fontSize:40*screenMultiplier];
+  thisIsYou = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"This is you!"]  fontName:MENUFONT fontSize:40*screenMultiplier];
   thisIsYou.position = ccp(-100, -1000);
     [playArea addChild:thisIsYou z:30];
   [thisIsYou runAction:[CCHide action]];
@@ -77,7 +77,7 @@
   circleNode.rotation = 20;
     [playArea addChild:circleNode z:30];
   [circleNode runAction:[CCHide action]];
-  waitingl = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Waiting for Opponent"]  fontName:@"Helvetica" fontSize:40*screenMultiplier];
+  waitingl = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Waiting for Opponent"]  fontName:MENUFONT fontSize:40*screenMultiplier];
   waitingl.position = ccp(size.width/2, size.height/2);
   
   
@@ -297,8 +297,6 @@ int x=0;
       int odx = move/100 - [secondSnake getXTile];
       int ody = move%100 - [secondSnake getYTile];
       
-      NSLog(@"Move to x:%i and y:%i",move/100, move%100);
-      
       while (odx!=0){
           if(odx>0){
               [secondSnake addDirection:kRightDirection];
@@ -401,9 +399,7 @@ int x=0;
 -(void)sendFinalMove{
 //  NSLog(@"Send Game Over");
   [[GameKitConnector sharedConnector] setMatchState:kMatchStateGameOver];
-    NSLog(@"X is %i",[snake getXTile]);
     NSInteger value = ([snake getXTile]+0)*100 + [snake getYTile] + 0;
-    NSLog(@"Hit at to x:%i and y:%i",value/100, value%100);
     [[GameKitConnector sharedConnector] sendCommand:@"finalmove" withInt:value];
 
   

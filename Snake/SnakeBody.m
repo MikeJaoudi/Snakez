@@ -134,9 +134,6 @@
 }
 
 -(NSInteger)getXTile{
-    NSLog(@"X pos is %f",self.position.x);
-    NSLog(@"X tile is %i",(NSInteger)((self.position.x + _snakeStep)/_snakeStep));
-
     return (self.position.x + _snakeStep)/_snakeStep;
 }
 

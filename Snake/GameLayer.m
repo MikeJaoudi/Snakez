@@ -101,6 +101,7 @@
             controls = [[FullScreenControlLayer alloc] init];
         }
         [controls setContentSize:size];
+        [controls fadeToOpacity:100];
         controls.position = ccp((playArea.contentSize.width-size.width)/2, (playArea.contentSize.height-size.height)/2);
         [playArea addChild:controls z:2];
         
@@ -171,20 +172,20 @@
         // NSLog(@"Interval %f for speed %i",(float)([app speed]/60.0f), [app speed]);
         [self schedule:@selector(nextFrame:) interval:([app speed]/60.0f)];
         
-        pausedLabel = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Paused"] fontName:@"Helvetica" fontSize:40*screenMultiplier];
+        pausedLabel = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Paused"] fontName:GAMEFONT fontSize:40*screenMultiplier];
         pausedLabel.position=ccp(size.width/2,size.height/2);
         [pausedLabel runAction:[CCHide action]];
         [self addChild:pausedLabel z:2];
         paused=NO;
         hitCorner = 0;
         
-        readyl = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Ready"] fontName:@"Helvetica" fontSize:40*screenMultiplier];
+        readyl = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Ready"] fontName:GAMEFONT fontSize:40*screenMultiplier];
         readyl.position = ccp(size.width/2, size.height/2);
         [readyl runAction:[CCHide action]];
         
-        go = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"GO!"] fontName:@"Helvetica" fontSize:40*screenMultiplier];
-        go.position = ccp(size.width/2, size.height/2);
-        [go runAction:[CCHide action]];
+        go = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"GO!"] fontName:GAMEFONT fontSize:40*screenMultiplier];
+        go.position = ccp(-100, -100);
+      //  [go runAction:[CCHide action]];
         
         
         [self addChild:readyl z:4];
@@ -199,11 +200,12 @@
 
 -(void)startGame{
     //NSLog(@"Starting");
+    CGSize size = [[CCDirector sharedDirector] winSize];
     [snake runAction:[CCShow action]];
     
     [readyl runAction:[CCSequence actions:[CCShow action],[CCDelayTime actionWithDuration:1.5], [CCSpawn actions:[CCScaleTo actionWithDuration:.5 scale:4], [CCFadeOut actionWithDuration:.3],nil], [CCScaleTo actionWithDuration:0 scale:1],[CCHide action], [CCFadeIn actionWithDuration:0], nil]];
     
-    
+    go.position = ccp(size.width/2, size.height/2);
     [go runAction:[CCSequence actions:[CCHide action],[CCDelayTime actionWithDuration:2],[CCShow action],[CCCallFunc actionWithTarget:self selector:@selector(setReady)], [CCDelayTime actionWithDuration:1.5], [CCFadeOut actionWithDuration:.3],[CCHide action],[CCFadeIn actionWithDuration:0], nil]];
 }
 

@@ -60,8 +60,8 @@
 }
 
 -(void)fadeToOpacity:(NSInteger)opacity{
-  [leftPad runAction:[CCFadeTo actionWithDuration:2 opacity:opacity*2]];
-  [rightPad runAction:[CCFadeTo actionWithDuration:2 opacity:opacity*2]];
+  [leftPad runAction:[CCFadeTo actionWithDuration:2 opacity:opacity]];
+  [rightPad runAction:[CCFadeTo actionWithDuration:2 opacity:opacity]];
 
 }
 

@@ -59,17 +59,17 @@
     _banner.frame = CGRectMake(size.width/2-_banner.frame.size.width/2, size.height-_banner.frame.size.height, _banner.frame.size.width, _banner.frame.size.height);
     [app.navController.topViewController.view addSubview:_banner];
     
-    _playAgain = [CCMenuItemLabel itemWithLabel:[CCLabelTTF labelWithString:@"Play Again" fontName:@"Helvetica" fontSize:36*_screenMultiplier] target:self selector:@selector(reset:)];
+    _playAgain = [CCMenuItemLabel itemWithLabel:[CCLabelTTF labelWithString:@"Play Again" fontName:MENUFONT fontSize:36*_screenMultiplier] target:self selector:@selector(reset:)];
     _playAgain.position = ccp(-_playAgain.contentSize.width/2-40, 0);
     
-    _mainMenu = [CCMenuItemLabel itemWithLabel:[CCLabelTTF labelWithString:@"Main Menu" fontName:@"Helvetica" fontSize:36*_screenMultiplier] target:self selector:@selector(menu:)];
+    _mainMenu = [CCMenuItemLabel itemWithLabel:[CCLabelTTF labelWithString:@"Main Menu" fontName:MENUFONT fontSize:36*_screenMultiplier] target:self selector:@selector(menu:)];
     _mainMenu.position = ccp(_mainMenu.contentSize.width/2+40, 0);
     
     [_playAgain setIsEnabled:YES];
     [_mainMenu setIsEnabled:YES];
     
     CCMenu *menu = [CCMenu menuWithItems:_playAgain, _mainMenu, nil];
-    menu.position = ccp(size.width / 2, _banner.frame.size.height * 1.5);
+    menu.position = ccp(size.width / 2, _banner.frame.size.height * 1.6);
     [self addChild:menu];
     
 

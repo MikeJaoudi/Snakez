@@ -348,10 +348,13 @@ static GameKitConnector *sharedInstance;
         case kResultWon:
             _wins++;
             total++;
+            self.streak++;
+
             [[NSUserDefaults standardUserDefaults] setInteger:total forKey:@"wins"];
             break;
         case kResultLost:
             _loses++;
+            self.streak = 0;
         default:
             break;
     }

@@ -213,6 +213,7 @@
         _dpad.position = ccp((_dpad.contentSize.width*1.2)/2, 0);
         
         _fullScreen = [[CCMenuItemImage alloc] initWithNormalImage:@"FullScreenMenu.png" selectedImage:nil disabledImage:nil target:self selector:@selector(fullScreenClicked)];
+
         _fullScreen.position = ccp(-(_fullScreen.contentSize.width*1.2)/2, 0);
         _controlMenu = [[CCMenu alloc] initWithArray:@[_dpad,_fullScreen]];
         _controlMenu.position = ccp(-1000, -1000);
@@ -224,29 +225,24 @@
 }
 
 -(void)dpadClicked{
-    if([[NSUserDefaults standardUserDefaults] integerForKey:@"Control"] == kControlsDPad){
-        return;
-    }
     [[NSUserDefaults standardUserDefaults] setInteger:kControlsDPad forKey:@"Control"];
     
     [_fullScreen stopAllActions];
-    [_fullScreen runAction:[CCScaleTo actionWithDuration:.2 scale:1.0]];
-    [_dpad runAction:[CCRepeatForever actionWithAction:[CCSequence actionOne:[CCScaleTo actionWithDuration:.6 scale:1.2] two:[CCScaleTo actionWithDuration:.6 scale:.9]]]];
+    [_dpad stopAllActions];
     
+    [_dpad runAction:[CCScaleTo actionWithDuration:0.5 scale:2.0f]];
+
     [self controlToMain];
 }
 
 -(void)fullScreenClicked{
-    if([[NSUserDefaults standardUserDefaults] integerForKey:@"Control"] == kControlsFullScreen){
-        return;
-    }
-    
     [[NSUserDefaults standardUserDefaults] setInteger:kControlsFullScreen forKey:@"Control"];
     
     [_dpad stopAllActions];
-    [_dpad runAction:[CCScaleTo actionWithDuration:.2 scale:1.0]];
+    [_fullScreen stopAllActions];
     
-    [_fullScreen runAction:[CCRepeatForever actionWithAction:[CCSequence actionOne:[CCScaleTo actionWithDuration:.6 scale:1.2] two:[CCScaleTo actionWithDuration:.6 scale:0.9]]]];
+    [_fullScreen runAction:[CCScaleTo actionWithDuration:0.5 scale:2.0f]];
+    
     [self controlToMain];
 }
 
@@ -267,12 +263,17 @@
 }
 
 -(void)controls{
+    _controls.isEnabled = NO;
     [titleLabel stopAllActions];
+    [_dpad stopAllActions];
+    [_fullScreen stopAllActions];
+    [_controls stopAllActions];
+
     
     [_mainMenu runAction:[CCHide action]];
     _controlMenu.position = ccp(_size.width/2, _size.height/2);
     [_controlMenu runAction:[CCShow action]];
-    [_controlMenu runAction:[CCFadeIn actionWithDuration:.5]];
+    [_controlMenu runAction:[CCFadeIn actionWithDuration:0.5f]];
     
     titleLabel.position = ccp(_controls.position.x+_mainMenu.position.x, _controls.position.y+_mainMenu.position.y);
     [titleLabel setString:_controls.label.string];
@@ -280,11 +281,17 @@
     [titleLabel runAction:[CCShow action]];
     [titleLabel runAction:[CCMoveTo actionWithDuration:.5 position:ccp(_classic.position.x+_mainMenu.position.x, _titleHeight)]];
     
+
+    [_dpad runAction:[CCSpawn actions:[CCShow action], [CCScaleTo actionWithDuration:0.0f scale:1.0f], [CCFadeIn actionWithDuration:0.0f], nil]];
+    [_fullScreen runAction:[CCSpawn actions:[CCShow action], [CCScaleTo actionWithDuration:0.0f scale:1.0f], [CCFadeIn actionWithDuration:0.0f], nil]];
+
+
     if([[NSUserDefaults standardUserDefaults] integerForKey:@"Control"] == kControlsDPad){
         [_dpad runAction:[CCRepeatForever actionWithAction:[CCSequence actionOne:[CCScaleTo actionWithDuration:.6 scale:1.2] two:[CCScaleTo actionWithDuration:.6 scale:0.9]]]];
     }
     else{
         [_fullScreen runAction:[CCRepeatForever actionWithAction:[CCSequence actionOne:[CCScaleTo actionWithDuration:.6 scale:1.2] two:[CCScaleTo actionWithDuration:.6 scale:0.9]]]];
+
     }
     
     _menuState = kMenuControl;
@@ -404,15 +411,15 @@
 }
 
 -(void)controlToMain{
-    [_dpad stopAllActions];
-    [_dpad runAction:[CCScaleTo actionWithDuration:0 scale:1.0]];
-    
-    [_fullScreen stopAllActions];
-    [_fullScreen runAction:[CCScaleTo actionWithDuration:0 scale:1.0]];
-    [titleLabel runAction:[CCSequence actions:[CCMoveTo actionWithDuration:.5 position:ccp(_controls.position.x+_mainMenu.position.x, _controls.position.y+_mainMenu.position.y)],[CCHide action],nil]];
+    _controls.isEnabled = NO;
+    [titleLabel runAction:[CCSequence actions:[CCMoveTo actionWithDuration:.5 position:ccp(_controls.position.x+_mainMenu.position.x, _controls.position.y+_mainMenu.position.y)],[CCHide action], [CCCallBlock actionWithBlock:^{
+        _controls.isEnabled = YES;
+    }], nil]];
     [_mainMenu runAction:[CCSequence actions:[CCShow action],[CCFadeIn actionWithDuration:.5],nil]];
     [_controls runAction:[CCSequence actions:[CCHide action],[CCDelayTime actionWithDuration:.5],[CCShow action],nil]];
-    [_controlMenu runAction:[CCHide action]];
+    [_controlMenu runAction:[CCSequence actions:[CCFadeOut actionWithDuration:0.2f],[CCDelayTime actionWithDuration:0.2f], [CCHide action], nil]];
+    [_dpad runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.2f], [CCScaleTo actionWithDuration:0.0f scale:1.0f], nil]];
+    [_fullScreen runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.2f], [CCScaleTo actionWithDuration:0.0f scale:1.0f], nil]];
     
     _menuState = kMenuMain;
 }
@@ -460,6 +467,7 @@
     }
     
 }
+
 
 -(void)dealloc{
     CCLOG(@"Dealloc %@",self);

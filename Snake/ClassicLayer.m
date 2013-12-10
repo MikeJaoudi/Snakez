@@ -43,11 +43,10 @@
   AppDelegate *app=(AppDelegate *)[[UIApplication sharedApplication] delegate];
   [app setScore:points];
   
-  //scorecounter = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Points: %i", points] dimensions:CGSizeMake(150, 30) hAlignment:kCCTextAlignmentLeft fontName:@"Helvetica" fontSize:20];
   
-  scorecounter = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Points: %i",points] fontName:@"Helvetica" fontSize:20*screenMultiplier dimensions:CGSizeMake(150*screenMultiplier, 30*screenMultiplier) hAlignment:kCCTextAlignmentLeft];
+  scorecounter = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"Points: %i",points] fontName:GAMEFONT fontSize:20*screenMultiplier dimensions:CGSizeMake(150*screenMultiplier, 30*screenMultiplier) hAlignment:kCCTextAlignmentLeft];
   
-  scorecounter.position =  ccp(82*screenMultiplier, size.height-20*screenMultiplier);
+  scorecounter.position =  ccp(82*screenMultiplier, size.height-15*screenMultiplier);
   [self addChild:scorecounter z:4];
 
   
@@ -146,11 +145,11 @@
   [super hitPickup];
   toAdd+=10;
   if(points+toAdd==20){
-    [controls fadeToOpacity:80]
+    [controls fadeToOpacity:50]
      ;
   }
   else if(points+toAdd==30){
-    [controls fadeToOpacity:60];
+    [controls fadeToOpacity:30];
   }
   
   

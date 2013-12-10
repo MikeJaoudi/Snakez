@@ -14,7 +14,7 @@
 #import "GameCenter.h"
 #import "ControlLayer.h"
 
-// HelloWorldLayer
+#define GAMEFONT @"HelveticaNeue-Light"
 
 typedef enum{
   kControlsFullScreen = 1,

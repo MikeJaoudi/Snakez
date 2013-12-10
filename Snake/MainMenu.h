@@ -20,8 +20,8 @@ typedef enum {
     kMenuControl
 } MenuSelected;
 
-#define MENUFONT @"HelveticaNeue"
-#define SUBMENUFONT @"HelveticaNeue"
+#define MENUFONT @"HelveticaNeue-Light"
+#define SUBMENUFONT @"HelveticaNeue-Light"
 
 
 

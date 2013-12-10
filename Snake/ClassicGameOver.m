@@ -47,7 +47,7 @@
 
     AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
-    _gameOver = [[CCLabelTTF  alloc] initWithString:@"Game Over" fontName:@"Helvetica" fontSize:52 * _screenMultiplier];
+    _gameOver = [[CCLabelTTF  alloc] initWithString:@"Game Over" fontName:HEADERFONT fontSize:52 * _screenMultiplier];
     _gameOver.position = ccp( size.width / 2 , size.height - 40 * _screenMultiplier);
     [self addChild:_gameOver];
 
@@ -75,12 +75,12 @@
         [[NSUserDefaults standardUserDefaults] setInteger:points forKey:highscoreString];
     }
 
-    _score = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"You scored %i points", points] fontName:@"Helvetica" fontSize:40*_screenMultiplier];
+    _score = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"You scored %i points", points] fontName:MENUFONT fontSize:40*_screenMultiplier];
     _score.position =  ccp( size.width /2 , size.height -100 * _screenMultiplier);
     [self addChild: _score];
 
 
-    _highscore = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"CHANGE ME!"] fontName:@"Helvetica" fontSize:30*_screenMultiplier];
+    _highscore = [[CCLabelTTF alloc] initWithString:[NSString stringWithFormat:@"CHANGE ME!"] fontName:MENUFONT fontSize:30*_screenMultiplier];
     [_highscore setHorizontalAlignment:kCCTextAlignmentCenter];
 
     NSInteger scoreInterger = [[NSUserDefaults standardUserDefaults] integerForKey:highscoreString];
