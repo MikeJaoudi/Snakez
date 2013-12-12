@@ -30,13 +30,13 @@
   CGSize size = [[CCDirector sharedDirector] winSize];
   
   pauseButton = [[CCSprite alloc] initWithTexture:[[CCTextureCache sharedTextureCache] addImage:@"PauseButton.png"]];
-  pauseButton.position = ccp(size.width-15*screenMultiplier, size.height-15*screenMultiplier);
+  pauseButton.position = ccp(size.width-20*screenMultiplier, size.height-15*screenMultiplier);
   [self addChild:pauseButton];
   
   arrow = [[CCSprite alloc] initWithTexture:[[CCTextureCache sharedTextureCache] addImage:@"Arrow.png"]];
   arrow.position = ccp(-100, -100);
   [arrow runAction:[CCHide action]];
-  [playArea addChild:arrow z:0];
+  [playArea addChild:arrow z:30];
   
   
   points=0;
@@ -59,6 +59,31 @@
                                            selector:@selector(pause)
                                                name:@"Pause"
                                              object:nil];
+    
+    NSString *difficulty;
+    switch ([app speed]) {
+        case kEasySpeed:
+            difficulty = @"Easy";
+            break;
+            
+        case kNormalSpeed:
+            difficulty = @"Normal";
+            break;
+            
+        case kHardSpeed:
+            difficulty = @"Hard";
+            break;
+    }
+    
+    NSString *c;
+    if([[NSUserDefaults standardUserDefaults] integerForKey:@"Control"] == kControlsDPad){
+        c = @"DPad Controls";
+    }
+    else{
+        c = @"Full Screen Controls";
+    }
+    
+    [Flurry logEvent:@"Play Classic" withParameters:@{@"Difficulty": difficulty, @"Control": c} timed:YES];
   
   return self;
 }
@@ -163,13 +188,14 @@
 }
 
 -(void)gameOver{
-  [[NSNotificationCenter defaultCenter] removeObserver:self];
-  [super gameOver];
-  [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(goToGameOver)], nil]];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super gameOver];
+    [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(goToGameOver)], nil]];
     
-  snakeParticle.position=[snake getNext].position;
-  [snakeParticle resetSystem];
-  
+    snakeParticle.position=[snake getNext].position;
+    [snakeParticle resetSystem];
+    [Flurry endTimedEvent:@"Play Classic" withParameters:@{@"Score":[NSNumber numberWithInt:points]}];
+
 }
 
 -(void)numberOfGames{

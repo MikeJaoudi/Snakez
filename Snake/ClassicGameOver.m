@@ -136,24 +136,11 @@
 
 
 - (void)reset:(id)sender{
-    AppDelegate *app=(AppDelegate *)[[UIApplication sharedApplication] delegate];
 
     CCScene * newScene = [ClassicLayer scene];
     [[CCDirector sharedDirector] replaceScene:newScene];
 
-    switch ([app speed]) {
-        case kEasySpeed:
-            [TestFlight passCheckpoint:@"Play Easy Classic Again"];
-            break;
-
-        case kNormalSpeed:
-            [TestFlight passCheckpoint:@"Play Normal Classic Again"];
-            break;
-
-        case kHardSpeed:
-            [TestFlight passCheckpoint:@"Play Hard Classic Again"];
-            break;
-    }
+    [Flurry logEvent:@"Play Again"];
 }
 
 - (void)dealloc{

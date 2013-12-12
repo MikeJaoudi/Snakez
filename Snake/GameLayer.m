@@ -13,6 +13,7 @@
 #import "FullScreenControlLayer.h"
 #import "DPadControlLayer.h"
 
+
 @implementation GameLayer
 
 +(CCScene *) scene
@@ -99,6 +100,7 @@
         }
         else if([[NSUserDefaults standardUserDefaults] integerForKey:@"Control"] == kControlsFullScreen){
             controls = [[FullScreenControlLayer alloc] init];
+
         }
         [controls setContentSize:size];
         [controls fadeToOpacity:100];
@@ -207,7 +209,10 @@
     
     go.position = ccp(size.width/2, size.height/2);
     [go runAction:[CCSequence actions:[CCHide action],[CCDelayTime actionWithDuration:2],[CCShow action],[CCCallFunc actionWithTarget:self selector:@selector(setReady)], [CCDelayTime actionWithDuration:1.5], [CCFadeOut actionWithDuration:.3],[CCHide action],[CCFadeIn actionWithDuration:0], nil]];
+
 }
+
+
 
 -(void)setReady{
     moved=NO;

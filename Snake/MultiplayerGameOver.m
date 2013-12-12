@@ -89,7 +89,7 @@
 
 -(void)reset:(id)sender{
     // NSLog(@"Reset");
-    [TestFlight passCheckpoint:@"Play Multiplayer Again"];
+    [Flurry logEvent:@"Play Multiplayer Again"];
     AppDelegate *app=(AppDelegate *)[[UIApplication sharedApplication] delegate];
     [app makeBanner];
     CCScene * newScene = [MultiplayerLayer scene];

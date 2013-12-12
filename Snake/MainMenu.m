@@ -128,7 +128,7 @@
         
         
         _leaderboard = [[CCMenuItemLabel alloc] initWithLabel:[CCLabelTTF labelWithString:@"Leaderboards" fontName:SUBMENUFONT fontSize:_detailSize] target:self selector:@selector(leaderboard)];
-		_leaderboard.position = ccp(0, _detailSize + 10);
+		_leaderboard.position = ccp(0, _detailSize*1.2);
         
         _achievements = [[CCMenuItemLabel alloc] initWithLabel:[CCLabelTTF labelWithString:@"Achievements" fontName:SUBMENUFONT fontSize:_detailSize] target:self selector:@selector(achievements)];
 		_achievements.position = ccp(0, 0);
@@ -166,14 +166,14 @@
 		[self addChild:_mainMenu];
         
         _easy = [[CCMenuItemLabel alloc] initWithLabel:[CCLabelTTF labelWithString:@"Easy" fontName:SUBMENUFONT fontSize:_detailSize] target:self selector:@selector(easy)];
-		_easy.position = ccp(0, _detailSize+10);
+		_easy.position = ccp(0, _detailSize*1.2);
 		
         
         _normal = [[CCMenuItemLabel alloc] initWithLabel:[CCLabelTTF labelWithString:@"Normal" fontName:SUBMENUFONT fontSize:_detailSize] target:self selector:@selector(normal)];
 		_normal.position = ccp(0, 0);
         
         _hard = [[CCMenuItemLabel alloc] initWithLabel:[CCLabelTTF labelWithString:@"Hard" fontName:SUBMENUFONT fontSize:_detailSize] target:self selector:@selector(hard)];
-		_hard.position = ccp(0, -_detailSize-10);
+		_hard.position = ccp(0, -_detailSize*1.2);
         
         
 		_difficulty = [CCMenu menuWithItems:_easy, _normal, _hard, nil];
@@ -298,7 +298,7 @@
 }
 
 -(void)multiplayer{
-    [TestFlight passCheckpoint:@"Multiplayer"];
+    [Flurry logEvent:@"Multiplayer"];
     AppDelegate *app=(AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     [app setSpeed:kNormalSpeed];
@@ -379,7 +379,6 @@
     AppDelegate *app=(AppDelegate *)[[UIApplication sharedApplication] delegate];
     [app setSpeed:kEasySpeed];
     
-    [TestFlight passCheckpoint:@"Easy"];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionSplitCols transitionWithDuration:0.5 scene:[ClassicLayer scene]]];
 }
 -(void)normal{
@@ -387,7 +386,6 @@
     [app setSpeed:kNormalSpeed];
     
     
-    [TestFlight passCheckpoint:@"Normal"];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionSplitCols transitionWithDuration:0.5 scene:[ClassicLayer scene]]];
 }
 -(void)hard{
@@ -395,7 +393,6 @@
     [app setSpeed:kHardSpeed];
     
     
-    [TestFlight passCheckpoint:@"Hard"];
     
     [[CCDirector sharedDirector] replaceScene:[CCTransitionSplitCols transitionWithDuration:0.5 scene:[ClassicLayer scene]]];
 }

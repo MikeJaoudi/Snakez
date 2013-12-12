@@ -139,18 +139,18 @@
 	// Assume that PVR images have premultiplied alpha
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
 	
-  [[GameCenter sharedGameCenter] authenticate];
-
-  
-	[TestFlight takeOff:TESTFLIGHTKEY];
-
-  
-  
-  
+    [[GameCenter sharedGameCenter] authenticate];
+    
+    
+    [Flurry setCrashReportingEnabled:YES];
+    [Flurry startSession:FLURRYKEY];
+    
+    
+    
 	// Run the intro Scene
-	[director_ pushScene: [MainMenu scene]]; 
-  
-  return YES;
+	[director_ pushScene: [MainMenu scene]];
+    
+    return YES;
 }
 
 // Supported orientations: Landscape. Customize it for your own needs

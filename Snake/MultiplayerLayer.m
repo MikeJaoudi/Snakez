@@ -349,7 +349,7 @@ int x=0;
     }
     [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(goToGameOver)], nil]];
     
-    
+    [Flurry endTimedEvent:@"Play Multiplayer" withParameters:nil];
 }
 
 -(void)goToGameOver{
@@ -393,6 +393,17 @@ int x=0;
     [self placePickup];
   }
   [super startGame];
+    
+    
+    NSString *c;
+    if([[NSUserDefaults standardUserDefaults] integerForKey:@"Control"] == kControlsDPad){
+        c = @"DPad Controls";
+    }
+    else{
+        c = @"Full Screen Controls";
+    }
+    [Flurry logEvent:@"Play Multiplayer" withParameters:@{@"Control": c} timed:YES];
+
   
 }
 
@@ -402,7 +413,6 @@ int x=0;
     NSInteger value = ([snake getXTile]+0)*100 + [snake getYTile] + 0;
     [[GameKitConnector sharedConnector] sendCommand:@"finalmove" withInt:value];
 
-  
 }
 
 -(void)finalPosition{

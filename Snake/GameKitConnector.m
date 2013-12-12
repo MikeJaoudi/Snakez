@@ -104,7 +104,6 @@ static GameKitConnector *sharedInstance;
 
 -(void)checkConnected{
     [self sendReliableCommand:@"Connected" withArgument:@"Done"];
-    [TestFlight passCheckpoint:@"Multiplayer - Connected!"];
     [self sendVersion];
 }
 
@@ -217,6 +216,7 @@ static GameKitConnector *sharedInstance;
                 _ignoreInput = YES;
                 [self performSelector:@selector(disconnect) withObject:nil afterDelay:1.0f];
             }
+            [Flurry logEvent:@"Multiplayer - Conntected"];
             return;
         }
 

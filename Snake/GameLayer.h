@@ -8,11 +8,14 @@
 
 
 // When you import this file, you import all the cocos2d classes
-#import "cocos2d.h"
 #import "AppDelegate.h"
 #import "SnakeBody.h"
 #import "GameCenter.h"
 #import "ControlLayer.h"
+
+#import <FlurrySDK/Flurry.h>
+#import <cocos2d/cocos2d.h>
+
 
 #define GAMEFONT @"HelveticaNeue-Light"
 

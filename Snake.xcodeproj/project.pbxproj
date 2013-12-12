@@ -224,7 +224,6 @@
 		9663A311182302DC0076D310 /* Glow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Glow.png; sourceTree = "<group>"; };
 		9663A312182302DC0076D310 /* Glow-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Glow-ipad.png"; sourceTree = "<group>"; };
 		9667C17218072041002F4724 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Snakez/Images.xcassets; sourceTree = "<group>"; };
-		96848864184D4700003770D3 /* MJAPIKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJAPIKeys.h; sourceTree = "<group>"; };
 		96AE707C1820E35F00E4191C /* Background-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-ipad.png"; sourceTree = "<group>"; };
 		96AE707D1820E35F00E4191C /* Background-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-ipadhd.png"; sourceTree = "<group>"; };
 		CCD7B5404F54448F9CC14400 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -334,16 +333,10 @@
 				6F2DB23B151D82E10015885A /* MultiplayerLayer.m */,
 				6F294341141A8B80005BAEEF /* SnakeBody.h */,
 				6F294342141A8B80005BAEEF /* SnakeBody.m */,
-				9663A311182302DC0076D310 /* Glow.png */,
-				9663A312182302DC0076D310 /* Glow-ipad.png */,
-				9663A30F1823026E0076D310 /* Glow-ipadhd.png */,
-				9663A30D1822EE3E0076D310 /* SideGlow.png */,
-				9663A30B1822EDB70076D310 /* SideGlow@2x.png */,
 				965567DE181EDCA0001B8E53 /* Background.png */,
 				965567DC181EDB85001B8E53 /* Background@2x.png */,
 				96AE707C1820E35F00E4191C /* Background-ipad.png */,
 				96AE707D1820E35F00E4191C /* Background-ipadhd.png */,
-				96848864184D4700003770D3 /* MJAPIKeys.h */,
 				6F2941DD141A8A26005BAEEF /* Resources */,
 				6F29432A141A8A28005BAEEF /* Supporting Files */,
 			);
@@ -353,6 +346,7 @@
 		6F2941DD141A8A26005BAEEF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				963BC4501858189800A8E026 /* Glow */,
 				6FD433B116CB6275009CCC6D /* Social Network Icons */,
 				6FD433B416CB6293009CCC6D /* Controls */,
 				6FD433BB16CB6337009CCC6D /* Game Items */,
@@ -443,6 +437,7 @@
 		6FD433B916CB630C009CCC6D /* Menu Items */ = {
 			isa = PBXGroup;
 			children = (
+				963BC4511858D2EA00A8E026 /* Background */,
 				6FD433B616CB62A6009CCC6D /* D-Pad */,
 				6FD433B516CB6299009CCC6D /* Full Screen */,
 			);
@@ -518,10 +513,6 @@
 		6FD433C016CB6393009CCC6D /* Arrow */ = {
 			isa = PBXGroup;
 			children = (
-				96586CE0185564AA00F2ABA5 /* MenuBackground.png */,
-				9612DA861851046100C45A58 /* MenuBackground-hd.png */,
-				9612DA871851046100C45A58 /* MenuBackground-ipad.png */,
-				9612DA841850F8C500C45A58 /* MenuBackground-ipadhd.png */,
 				6F3E8D251696C16C005F6F55 /* YouArrow.png */,
 				6F3E8D261696C16C005F6F55 /* YouArrow-ipad.png */,
 				6F3E8D271696C16D005F6F55 /* YouArrow-ipadhd.png */,
@@ -564,6 +555,30 @@
 				6FBC1A74168FC54100635ECF /* Controls-ipadhd.png */,
 			);
 			name = "Full Screen";
+			path = Snake;
+			sourceTree = "<group>";
+		};
+		963BC4501858189800A8E026 /* Glow */ = {
+			isa = PBXGroup;
+			children = (
+				9663A311182302DC0076D310 /* Glow.png */,
+				9663A312182302DC0076D310 /* Glow-ipad.png */,
+				9663A30F1823026E0076D310 /* Glow-ipadhd.png */,
+				9663A30D1822EE3E0076D310 /* SideGlow.png */,
+				9663A30B1822EDB70076D310 /* SideGlow@2x.png */,
+			);
+			name = Glow;
+			sourceTree = "<group>";
+		};
+		963BC4511858D2EA00A8E026 /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				96586CE0185564AA00F2ABA5 /* MenuBackground.png */,
+				9612DA861851046100C45A58 /* MenuBackground-hd.png */,
+				9612DA871851046100C45A58 /* MenuBackground-ipad.png */,
+				9612DA841850F8C500C45A58 /* MenuBackground-ipadhd.png */,
+			);
+			name = Background;
 			path = Snake;
 			sourceTree = "<group>";
 		};

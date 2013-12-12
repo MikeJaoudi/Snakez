@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import "GameKitConnector.h"
 #import <GameKit/GameKit.h>
-#import <TestFlightSDK/TestFlight.h>
+#import <FlurrySDK/Flurry.h>
 
 typedef enum {
     kMenuMain,
