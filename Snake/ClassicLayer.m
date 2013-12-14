@@ -31,7 +31,7 @@
   
   pauseButton = [[CCSprite alloc] initWithTexture:[[CCTextureCache sharedTextureCache] addImage:@"PauseButton.png"]];
   pauseButton.position = ccp(size.width-20*screenMultiplier, size.height-15*screenMultiplier);
-  [self addChild:pauseButton];
+    [self addChild:pauseButton z:30];
   
   arrow = [[CCSprite alloc] initWithTexture:[[CCTextureCache sharedTextureCache] addImage:@"Arrow.png"]];
   arrow.position = ccp(-100, -100);
